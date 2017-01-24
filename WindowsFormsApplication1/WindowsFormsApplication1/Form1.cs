@@ -96,6 +96,14 @@ namespace WindowsFormsApplication1
             public int num4;
             public int num5;
             public int num6;
+
+            //
+            // return a string.
+            //
+            public override string ToString()
+            {
+                return "num1 : " + num1 "," + "num2 : " + num2 "," + "num3 : " + num3 "," + "num4 : " + num4 "," + "num5 : " + num5 "," + "num6 : " + num6;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
