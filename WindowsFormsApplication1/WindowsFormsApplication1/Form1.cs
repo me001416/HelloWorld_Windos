@@ -87,7 +87,7 @@ namespace WindowsFormsApplication1
 
             pbList.Add(x);
         }
-
+        /*
         public class PowerBall
         {
             public int num1;
@@ -115,7 +115,7 @@ namespace WindowsFormsApplication1
                 num6 = x6;
             }
         }
-
+        */
         private void button2_Click(object sender, EventArgs e)
         {
             int listSize = pbList.Count;
