@@ -104,6 +104,16 @@ namespace WindowsFormsApplication1
             {
                 return "num1 : " + num1 + "," + "num2 : " + num2 + "," + "num3 : " + num3 + "," + "num4 : " + num4 + "," + "num5 : " + num5 + "," + "num6 : " + num6;
             }
+
+            public void SetValue( int x1, int x2, int x3, int x4, int x5, int x6 )
+            {
+                num1 = x1;
+                num2 = x2;
+                num3 = x3;
+                num4 = x4;
+                num5 = x5;
+                num6 = x6;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
