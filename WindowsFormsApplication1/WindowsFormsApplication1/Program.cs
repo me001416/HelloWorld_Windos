@@ -21,8 +21,14 @@ namespace WindowsFormsApplication1
             //
             // 測試物件宣告
             //
-            //Form1.PowerBall xyz = new Form1.PowerBall();
-            //xyz.num1 = 0;
+            PowerBall xyz1 = new PowerBall();
+            xyz1.num1 = 0;
+
+            //
+            // 測試物件初始化
+            //
+            PowerBall xyz2 = new PowerBall() { num1 = 10 };
+
         }
     }
 }
