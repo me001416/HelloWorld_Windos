@@ -23,59 +23,12 @@ namespace WindowsFormsApplication1
         {
             PowerBall x = new PowerBall();
 
-            if (string.IsNullOrEmpty(textBox1.Text))
-            {
-                x.num1 = 0;
-            }
-            else
-            {
-                x.num1 = Int32.Parse(textBox1.Text);
-            }
-
-            if (string.IsNullOrEmpty(textBox2.Text))
-            {
-                x.num2 = 0;
-            }
-            else
-            {
-                x.num2 = Int32.Parse(textBox2.Text);
-            }
-
-            if (string.IsNullOrEmpty(textBox3.Text))
-            {
-                x.num3 = 0;
-            }
-            else
-            {
-                x.num3 = Int32.Parse(textBox3.Text);
-            }
-
-            if (string.IsNullOrEmpty(textBox4.Text))
-            {
-                x.num4 = 0;
-            }
-            else
-            {
-                x.num4 = Int32.Parse(textBox4.Text);
-            }
-
-            if (string.IsNullOrEmpty(textBox5.Text))
-            {
-                x.num5 = 0;
-            }
-            else
-            {
-                x.num5 = Int32.Parse(textBox5.Text);
-            }
-
-            if (string.IsNullOrEmpty(textBox6.Text))
-            {
-                x.num6 = 0;
-            }
-            else
-            {
-                x.num6 = Int32.Parse(textBox6.Text);
-            }
+            x.num1 = IsStringEmpty(textBox1.Text);
+            x.num2 = IsStringEmpty(textBox2.Text);
+            x.num3 = IsStringEmpty(textBox3.Text);
+            x.num4 = IsStringEmpty(textBox4.Text);
+            x.num5 = IsStringEmpty(textBox5.Text);
+            x.num6 = IsStringEmpty(textBox6.Text);
 
             pbList.Add(x);
         }
@@ -136,6 +89,22 @@ namespace WindowsFormsApplication1
             {
                 e.Handled = true;
             }
+        }
+
+        public int IsStringEmpty(string str)
+        {
+            int num;
+
+            if (string.IsNullOrEmpty(str))
+            {
+                num = 0;
+            }
+            else
+            {
+                num = Int32.Parse(str);
+            }
+
+            return num;
         }
     }
 }
