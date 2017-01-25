@@ -205,7 +205,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 16);
             this.label3.TabIndex = 18;
-            this.label3.Text = "ConsolOut";
+            this.label3.Text = "";
             // 
             // label4
             // 
@@ -215,7 +215,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 16);
             this.label4.TabIndex = 19;
-            this.label4.Text = "ConsolOut";
+            this.label4.Text = "";
             // 
             // label5
             // 
@@ -225,7 +225,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 16);
             this.label5.TabIndex = 20;
-            this.label5.Text = "ConsolOut";
+            this.label5.Text = "";
             // 
             // label6
             // 
@@ -235,7 +235,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 16);
             this.label6.TabIndex = 21;
-            this.label6.Text = "ConsolOut";
+            this.label6.Text = "";
             // 
             // label7
             // 
@@ -245,7 +245,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 16);
             this.label7.TabIndex = 22;
-            this.label7.Text = "ConsolOut";
+            this.label7.Text = "";
             // 
             // label8
             // 
@@ -255,7 +255,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(75, 16);
             this.label8.TabIndex = 23;
-            this.label8.Text = "ConsolOut";
+            this.label8.Text = "";
             // 
             // Form1
             // 

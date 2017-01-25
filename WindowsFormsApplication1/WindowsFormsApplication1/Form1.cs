@@ -35,22 +35,14 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int temp = 0;
-            string str = null;
-
             if (pbList.Count != 0)
             {
-                temp = pbList[pbList.Count-1].num1;
-                str = temp.ToString();
-
-                if (string.IsNullOrEmpty(str))
-                {
-                    textBox7.Text = "123";
-                }
-                else
-                {
-                    textBox8.Text = "456";
-                }
+                label3.Text = ListNumToStr(pbList[pbList.Count - 1].num1);
+                label4.Text = ListNumToStr(pbList[pbList.Count - 1].num2);
+                label5.Text = ListNumToStr(pbList[pbList.Count - 1].num3);
+                label6.Text = ListNumToStr(pbList[pbList.Count - 1].num4);
+                label7.Text = ListNumToStr(pbList[pbList.Count - 1].num5);
+                label8.Text = ListNumToStr(pbList[pbList.Count - 1].num6);
             }            
         }
 
@@ -91,6 +83,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        //
+        // 判斷字串是否為空
+        //
         public int IsStringEmpty(string str)
         {
             int num;
@@ -105,6 +100,23 @@ namespace WindowsFormsApplication1
             }
 
             return num;
+        }
+
+        //
+        // Number to String.
+        //
+        public string ListNumToStr (int num)
+        {
+            string str;
+
+            str = num.ToString();
+
+            if (string.IsNullOrEmpty(str))
+            {
+                str = "NULL";
+            }
+
+            return str;
         }
     }
 }
