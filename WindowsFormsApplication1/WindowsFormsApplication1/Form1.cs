@@ -13,7 +13,6 @@ namespace WindowsFormsApplication1
     public partial class Form1 : Form
     {
         List<PowerBall> pbList = new List<PowerBall>();
-        //PowerBall x = new PowerBall();
 
         public Form1()
         {
@@ -22,7 +21,6 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //PowerBall x = new PowerBall() { num1 = Int32.Parse(textBox1.Text), num2 = Int32.Parse(textBox2.Text), num3 = Int32.Parse(textBox3.Text), num4 = Int32.Parse(textBox4.Text), num5 = Int32.Parse(textBox5.Text), num6 = Int32.Parse(textBox6.Text) };
             PowerBall x = new PowerBall();
 
             if (string.IsNullOrEmpty(textBox1.Text))
@@ -79,31 +77,17 @@ namespace WindowsFormsApplication1
                 x.num6 = Int32.Parse(textBox6.Text);
             }
 
-            //x.num2 = Int32.Parse(textBox2.Text);
-            //x.num3 = Int32.Parse(textBox3.Text);
-            //x.num4 = Int32.Parse(textBox4.Text);
-            //x.num5 = Int32.Parse(textBox5.Text);
-            //x.num6 = Int32.Parse(textBox6.Text);
-
             pbList.Add(x);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int listSize = pbList.Count;
             int temp = 0;
             string str = null;
-            
-            if ( listSize != 0 )
-            {
-                //textBox7.Text = pbList[listSize].num1.ToString();
-                //textBox8.Text = pbList[listSize].num2.ToString();
-                //textBox9.Text = pbList[listSize].num3.ToString();
-                //textBox10.Text = pbList[listSize].num4.ToString();
-                //textBox11.Text = pbList[listSize].num5.ToString();
-                //textBox12.Text = pbList[listSize].num6.ToString();
 
-                temp = pbList[listSize].num1;
+            if (pbList.Count != 0)
+            {
+                temp = pbList[pbList.Count-1].num1;
                 str = temp.ToString();
 
                 if (string.IsNullOrEmpty(str))
@@ -114,7 +98,7 @@ namespace WindowsFormsApplication1
                 {
                     textBox8.Text = "456";
                 }
-            }
+            }            
         }
 
         //
