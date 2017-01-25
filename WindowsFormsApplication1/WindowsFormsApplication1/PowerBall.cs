@@ -8,12 +8,22 @@ namespace WindowsFormsApplication1
 {
     public struct PowerBall
     {
+        //
+        // number.
+        //
         public int num1;
         public int num2;
         public int num3;
         public int num4;
         public int num5;
         public int num6;
+
+        //
+        // mm/dd/yyyy
+        //
+        public int mouth;
+        public int day;
+        public int year;
 
         //
         // return a string.
