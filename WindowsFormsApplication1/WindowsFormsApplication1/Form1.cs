@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
             x.num4.num = IsStringEmpty(textBox4.Text);
             x.num5.num = IsStringEmpty(textBox5.Text);
             x.num6.num = IsStringEmpty(textBox6.Text);
+            x.num7.num = IsStringEmpty(textBox12.Text);
 
             pbList.Add(x);
         }
@@ -43,6 +44,7 @@ namespace WindowsFormsApplication1
                 label6.Text = pbList[pbList.Count - 1].num4.NumToString();
                 label7.Text = pbList[pbList.Count - 1].num5.NumToString();
                 label8.Text = pbList[pbList.Count - 1].num6.NumToString();
+                label9.Text = pbList[pbList.Count - 1].num7.NumToString();
             }
         }
 

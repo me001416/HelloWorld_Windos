@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         public PowerBallNumber num4;
         public PowerBallNumber num5;
         public PowerBallNumber num6;
+        public PowerBallNumber num7;
 
         //
         // mm/dd/yyyy
@@ -31,7 +32,7 @@ namespace WindowsFormsApplication1
         //
         public override string ToString()
         {
-            return "Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num;
+            return "Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num;
         }
 
         public void SetValue(int x1, int x2, int x3, int x4, int x5, int x6)
@@ -46,7 +47,7 @@ namespace WindowsFormsApplication1
 
         public void ShowData()
         {
-            MessageBox.Show("Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num);
+            MessageBox.Show("Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num);
         }
     }
 
