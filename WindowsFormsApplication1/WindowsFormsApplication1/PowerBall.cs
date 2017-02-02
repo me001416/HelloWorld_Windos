@@ -7,6 +7,36 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    public struct PowerBallNumber
+    {
+        //
+        // number.
+        //
+        public int num;
+
+        //
+        // Is Special Number or not.
+        //
+        public Boolean SpecialNum;
+
+        //
+        // Number to String.
+        //
+        public string NumToString()
+        {
+            string str;
+
+            str = num.ToString();
+
+            if (string.IsNullOrEmpty(str))
+            {
+                str = "NULL";
+            }
+
+            return str;
+        }
+    }
+
     public struct PowerBall
     {
         //
@@ -26,6 +56,11 @@ namespace WindowsFormsApplication1
         public int mouth;
         public int day;
         public int year;
+
+        public PowerBall(int xx) : this()
+        {
+            this.num1.num = 0;
+        }
 
         //
         // return a string.
@@ -48,31 +83,6 @@ namespace WindowsFormsApplication1
         public void ShowData()
         {
             MessageBox.Show("Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num);
-        }
-    }
-
-    public struct PowerBallNumber
-    {
-        //
-        // number.
-        //
-        public int num;
-
-        //
-        // Number to String.
-        //
-        public string NumToString()
-        {
-            string str;
-
-            str = num.ToString();
-
-            if (string.IsNullOrEmpty(str))
-            {
-                str = "NULL";
-            }
-
-            return str;
         }
     }
 }
