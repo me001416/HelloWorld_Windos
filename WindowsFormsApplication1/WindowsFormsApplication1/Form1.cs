@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1
                 label6.Text = ListNumToStr(pbList[pbList.Count - 1].num4);
                 label7.Text = ListNumToStr(pbList[pbList.Count - 1].num5);
                 label8.Text = ListNumToStr(pbList[pbList.Count - 1].num6);
-            }            
+            }
         }
 
         //
@@ -66,6 +66,14 @@ namespace WindowsFormsApplication1
                     Application.DoEvents();
                     System.Threading.Thread.Sleep(3);
                 }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (pbList.Count != 0)
+            {
+                pbList[pbList.Count - 1].ShowData();
             }
         }
 

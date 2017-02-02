@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
@@ -30,7 +31,7 @@ namespace WindowsFormsApplication1
         //
         public override string ToString()
         {
-            return "num1 : " + num1 + "," + "num2 : " + num2 + "," + "num3 : " + num3 + "," + "num4 : " + num4 + "," + "num5 : " + num5 + "," + "num6 : " + num6;
+            return "Num1 : " + num1 + " ; " + "Num2 : " + num2 + " ; " + "Num3 : " + num3 + " ; " + "Num4 : " + num4 + " ; " + "Num5 : " + num5 + " ; " + "Num6 : " + num6;
         }
 
         public void SetValue(int x1, int x2, int x3, int x4, int x5, int x6)
@@ -41,6 +42,11 @@ namespace WindowsFormsApplication1
             num4 = x4;
             num5 = x5;
             num6 = x6;
+        }
+
+        public void ShowData()
+        {
+            MessageBox.Show("Num1 : " + num1 + " ; " + "Num2 : " + num2 + " ; " + "Num3 : " + num3 + " ; " + "Num4 : " + num4 + " ; " + "Num5 : " + num5 + " ; " + "Num6 : " + num6);
         }
     }
 }
