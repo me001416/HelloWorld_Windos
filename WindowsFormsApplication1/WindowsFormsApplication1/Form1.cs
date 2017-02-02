@@ -23,12 +23,12 @@ namespace WindowsFormsApplication1
         {
             PowerBall x = new PowerBall();
 
-            x.num1 = IsStringEmpty(textBox1.Text);
-            x.num2 = IsStringEmpty(textBox2.Text);
-            x.num3 = IsStringEmpty(textBox3.Text);
-            x.num4 = IsStringEmpty(textBox4.Text);
-            x.num5 = IsStringEmpty(textBox5.Text);
-            x.num6 = IsStringEmpty(textBox6.Text);
+            x.num1.num = IsStringEmpty(textBox1.Text);
+            x.num2.num = IsStringEmpty(textBox2.Text);
+            x.num3.num = IsStringEmpty(textBox3.Text);
+            x.num4.num = IsStringEmpty(textBox4.Text);
+            x.num5.num = IsStringEmpty(textBox5.Text);
+            x.num6.num = IsStringEmpty(textBox6.Text);
 
             pbList.Add(x);
         }
@@ -37,12 +37,12 @@ namespace WindowsFormsApplication1
         {
             if (pbList.Count != 0)
             {
-                label3.Text = ListNumToStr(pbList[pbList.Count - 1].num1);
-                label4.Text = ListNumToStr(pbList[pbList.Count - 1].num2);
-                label5.Text = ListNumToStr(pbList[pbList.Count - 1].num3);
-                label6.Text = ListNumToStr(pbList[pbList.Count - 1].num4);
-                label7.Text = ListNumToStr(pbList[pbList.Count - 1].num5);
-                label8.Text = ListNumToStr(pbList[pbList.Count - 1].num6);
+                label3.Text = pbList[pbList.Count - 1].num1.NumToString();
+                label4.Text = pbList[pbList.Count - 1].num2.NumToString();
+                label5.Text = pbList[pbList.Count - 1].num3.NumToString();
+                label6.Text = pbList[pbList.Count - 1].num4.NumToString();
+                label7.Text = pbList[pbList.Count - 1].num5.NumToString();
+                label8.Text = pbList[pbList.Count - 1].num6.NumToString();
             }
         }
 
@@ -108,23 +108,6 @@ namespace WindowsFormsApplication1
             }
 
             return num;
-        }
-
-        //
-        // Number to String.
-        //
-        public string ListNumToStr (int num)
-        {
-            string str;
-
-            str = num.ToString();
-
-            if (string.IsNullOrEmpty(str))
-            {
-                str = "NULL";
-            }
-
-            return str;
         }
     }
 }
