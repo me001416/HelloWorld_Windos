@@ -30,6 +30,7 @@ namespace WindowsFormsApplication1
             x.num5.num = IsStringEmpty(textBox5.Text);
             x.num6.num = IsStringEmpty(textBox6.Text);
             x.num7.num = IsStringEmpty(textBox12.Text);
+            x.num7.SpecialNum = true;
 
             pbList.Add(x);
         }
@@ -102,7 +103,7 @@ namespace WindowsFormsApplication1
 
             if (string.IsNullOrEmpty(str))
             {
-                num = 0;
+                num = 1;
             }
             else
             {

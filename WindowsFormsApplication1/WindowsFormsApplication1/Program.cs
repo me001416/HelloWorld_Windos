@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
             // 測試物件宣告
             //
             PowerBall xyz1 = new PowerBall();
-            xyz1.num1.num = 0;
+            xyz1.num1.num = 12;
 
             //
             // Test MessageBox item
@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
             //
             // 測試物件初始化
             //
-            //PowerBall xyz2 = new PowerBall() { num1 = 10 };
+            PowerBall xyz2 = new PowerBall(10);
 
         }
     }
