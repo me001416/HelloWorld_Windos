@@ -25,6 +25,11 @@ namespace WindowsFormsApplication1
             xyz1.num1 = 0;
 
             //
+            // Test MessageBox item
+            //
+            MessageBox.Show("xyz1.num1 =" + xyz1.num1);
+
+            //
             // 測試物件初始化
             //
             PowerBall xyz2 = new PowerBall() { num1 = 10 };
