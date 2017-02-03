@@ -54,20 +54,28 @@ namespace WindowsFormsApplication1
         //
         private void button3_Click(object sender, EventArgs e)
         {
+            Random randomizer = new Random();
+
             while (Visible)
             {
                 for (int c = 0; c < 254 && Visible; c++)
                 {
-                    this.BackColor = Color.FromArgb(c, 255 - c, c);
+                    int green1;
+
+                    green1 = randomizer.Next(254);
+                    this.BackColor = Color.FromArgb(green1, 255 - c, c);
                     Application.DoEvents();
-                    System.Threading.Thread.Sleep(3);
+                    System.Threading.Thread.Sleep(100);
                 }
 
                 for (int c = 254; c >= 0 && Visible; c--)
                 {
-                    this.BackColor = Color.FromArgb(c, 255 - c, c);
+                    int green2;
+
+                    green2 = randomizer.Next(254);
+                    this.BackColor = Color.FromArgb(green2, 255 - c, c);
                     Application.DoEvents();
-                    System.Threading.Thread.Sleep(3);
+                    System.Threading.Thread.Sleep(100);
                 }
             }
         }
