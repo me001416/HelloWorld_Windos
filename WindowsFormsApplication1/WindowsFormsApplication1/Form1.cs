@@ -23,14 +23,7 @@ namespace WindowsFormsApplication1
         {
             PowerBall x = new PowerBall();
 
-            x.num1.num = IsStringEmpty(textBox1.Text);
-            x.num2.num = IsStringEmpty(textBox2.Text);
-            x.num3.num = IsStringEmpty(textBox3.Text);
-            x.num4.num = IsStringEmpty(textBox4.Text);
-            x.num5.num = IsStringEmpty(textBox5.Text);
-            x.num6.num = IsStringEmpty(textBox6.Text);
-            x.num7.num = IsStringEmpty(textBox12.Text);
-            x.num7.SpecialNum = true;
+            x.SetNum(IsStringEmpty(textBox1.Text), IsStringEmpty(textBox2.Text), IsStringEmpty(textBox3.Text), IsStringEmpty(textBox4.Text), IsStringEmpty(textBox5.Text), IsStringEmpty(textBox6.Text), IsStringEmpty(textBox12.Text));
 
             pbList.Add(x);
         }

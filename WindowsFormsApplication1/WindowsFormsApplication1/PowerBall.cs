@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
             return "Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num;
         }
 
-        public void SetValue(int x1, int x2, int x3, int x4, int x5, int x6)
+        public void SetNum(int x1, int x2, int x3, int x4, int x5, int x6, int x7)
         {
             num1.num = x1;
             num2.num = x2;
@@ -48,6 +48,15 @@ namespace WindowsFormsApplication1
             num4.num = x4;
             num5.num = x5;
             num6.num = x6;
+            num7.num = x7;
+
+            num1.SpecialNum = false;
+            num2.SpecialNum = false;
+            num3.SpecialNum = false;
+            num4.SpecialNum = false;
+            num5.SpecialNum = false;
+            num6.SpecialNum = false;
+            num7.SpecialNum = true;
         }
 
         public void ShowData()
