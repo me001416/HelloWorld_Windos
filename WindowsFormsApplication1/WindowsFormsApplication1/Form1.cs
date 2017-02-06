@@ -81,6 +81,26 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            File_Owner fo = new File_Owner(null, true);
+
+            //foreach (var n in pbList)
+            //{
+            //    fo.WriteNum(n.num1.NumToString(), n.num2.NumToString(), n.num3.NumToString(), n.num4.NumToString(), n.num5.NumToString(), n.num6.NumToString(), n.num7.NumToString());
+            //}
+
+            if (pbList.Count != 0)
+            {
+                for (int i = 0; i < pbList.Count; i++)
+                {
+                    fo.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString());
+                }
+
+                fo.StopWrite();
+            }
+        }
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
