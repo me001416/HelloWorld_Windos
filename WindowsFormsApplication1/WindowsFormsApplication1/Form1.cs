@@ -83,17 +83,29 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            File_Owner fo = new File_Owner(null, true);
+            File_Owner fileOwner = new File_Owner(null, true);
 
             if (pbList.Count != 0)
             {
                 for (int i = 0; i < pbList.Count; i++)
                 {
-                    fo.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString());
+                    fileOwner.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString());
                 }
 
-                fo.StopWrite();
+                fileOwner.StopWrite();
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            File_Owner fileOwner = new File_Owner(null, false);
+            //string str;
+
+            //str = 
+            fileOwner.ReadNum();
+
+            fileOwner.StopRead();
+            
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
