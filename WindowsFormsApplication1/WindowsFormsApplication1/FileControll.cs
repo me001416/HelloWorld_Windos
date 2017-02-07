@@ -45,7 +45,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void WriteNum(string str1, string str2, string str3, string str4, string str5, string str6, string str7)
+        public void WriteNum(string str1, string str2, string str3, string str4, string str5, string str6, string str7, string mouth, string day, string year)
         {
             if (sWriter == null)
             {
@@ -65,6 +65,12 @@ namespace WindowsFormsApplication1
             sWriter.Write(str6);
             sWriter.Write(',');
             sWriter.Write(str7);
+            sWriter.Write(',');
+            sWriter.Write(mouth);
+            sWriter.Write(',');
+            sWriter.Write(day);
+            sWriter.Write(',');
+            sWriter.Write(year);
             sWriter.WriteLine(',');
         }
 
@@ -74,9 +80,8 @@ namespace WindowsFormsApplication1
         }
 
         public List<PowerBall> ReadNum()
-        //public void ReadNum()
         {
-            String str0, str1 = "", str2 = null;
+            String str0, str1 = null, str2 = null;
             Char[] chars = new Char[40];
             int j = 0, index0 = 0;
             Boolean refresh = true;
@@ -92,10 +97,8 @@ namespace WindowsFormsApplication1
                 refresh = true;
                 str2 = null;
 
-                //for (int i = 0; i < str0.Length - 1 || str0[i] < '9' || str0[i] == ',' || str0[i] > '0'; i++)
                 for (int i = 0; i < str0.Length; i++)
                 {
-                    //if ( str0[i] > '0' || str0[i] < '9' && str0[i] != ',')
                     if (str0[i] > '0' || str0[i] < '9')
                     {
                         chars[j] = str0[i];
@@ -105,7 +108,6 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < 40; i++)
                 {
-                    //if (chars[i] != ',' && chars[i] != '0')
                     if (chars[i] != ',')
                     {
                         str1 = chars[i].ToString();
@@ -145,6 +147,15 @@ namespace WindowsFormsApplication1
                             case 6:
                                 _nPowerBall.num7.num = Int32.Parse(str2);
                                 break;
+                            case 7:
+                                _nPowerBall.mouth = Int32.Parse(str2);
+                                break;
+                            case 8:
+                                _nPowerBall.day = Int32.Parse(str2);
+                                break;
+                            case 9:
+                                _nPowerBall.year = Int32.Parse(str2);
+                                break;
                         }
 
                         str2 = null;
@@ -157,8 +168,6 @@ namespace WindowsFormsApplication1
             }
 
             return _PowerBall;
-
-            //MessageBox.Show(str2);
         }
 
         public void StopRead()

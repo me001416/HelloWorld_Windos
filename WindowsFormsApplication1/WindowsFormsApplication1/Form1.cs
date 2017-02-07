@@ -89,7 +89,7 @@ namespace WindowsFormsApplication1
             {
                 for (int i = 0; i < pbList.Count; i++)
                 {
-                    fileOwner.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString());
+                    fileOwner.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString(), pbList[i].mouth.ToString(), pbList[i].day.ToString(), pbList[i].year.ToString());
                 }
 
                 fileOwner.StopWrite();
@@ -100,9 +100,7 @@ namespace WindowsFormsApplication1
         {
             File_Owner fileOwner = new File_Owner(null, false);
             List<PowerBall> _PowerBall;
-            //string str;
-
-            //str = 
+            
             _PowerBall = fileOwner.ReadNum();
 
             fileOwner.StopRead();
