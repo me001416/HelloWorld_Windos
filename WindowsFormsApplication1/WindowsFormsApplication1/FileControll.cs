@@ -19,7 +19,8 @@ namespace WindowsFormsApplication1
         {
             String _fileName;
 
-            if (FileName == null || !FileOrDirectoryExists(FileName))
+            //if (FileName == null || !FileOrDirectoryExists(FileName))
+            if (FileName == null)
             {
                 if (Active)
                 {
@@ -74,6 +75,19 @@ namespace WindowsFormsApplication1
             sWriter.WriteLine(',');
         }
 
+        public void WriteReport(string[] str, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                sWriter.WriteLine(str[i]);
+            }
+
+            sWriter.WriteLine("End");
+        }
+
+        //
+        // Close StreamWriter.
+        //
         public void StopWrite()
         {
             sWriter.Close();
@@ -81,16 +95,27 @@ namespace WindowsFormsApplication1
 
         public List<PowerBall> ReadNum()
         {
-            String str0, str1 = null, str2 = null;
-            Char[] chars = new Char[40];
-            int j = 0, index0 = 0;
+            int j = 0;
+            int index0 = 0;
+            String str0;
+            String str1 = null;
+            String str2 = null;
             Boolean refresh = true;
+            Char[] chars = new Char[40];
+
             PowerBall _nPowerBall;
             List<PowerBall> _PowerBall = new List<PowerBall>();
 
             while (!sReader.EndOfStream)
             {
+                //
+                // Read data from file.
+                //
                 str0 = sReader.ReadLine();
+
+                //
+                // Initialize variable on while loop.
+                //
                 _nPowerBall = new PowerBall();
                 j = 0;
                 index0 = 0;
@@ -170,6 +195,9 @@ namespace WindowsFormsApplication1
             return _PowerBall;
         }
 
+        //
+        // Close StreamReader.
+        //
         public void StopRead()
         {
             sReader.Close();

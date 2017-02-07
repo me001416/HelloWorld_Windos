@@ -75,10 +75,13 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (pbList.Count != 0)
-            {
-                pbList[pbList.Count - 1].ShowData();
-            }
+            //if (pbList.Count != 0)
+            //{
+            //    pbList[pbList.Count - 1].ShowData();
+            //}
+            HitCounter _HitCounter = new HitCounter();
+
+            _HitCounter.Report(pbList);
         }
 
         private void button5_Click(object sender, EventArgs e)
