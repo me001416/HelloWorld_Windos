@@ -99,12 +99,18 @@ namespace WindowsFormsApplication1
         private void button6_Click(object sender, EventArgs e)
         {
             File_Owner fileOwner = new File_Owner(null, false);
+            List<PowerBall> _PowerBall = new List<PowerBall>();
             //string str;
 
             //str = 
-            fileOwner.ReadNum();
+            _PowerBall = fileOwner.ReadNum();
 
             fileOwner.StopRead();
+
+            if (_PowerBall.Count != 0)
+            {
+                _PowerBall[_PowerBall.Count - 1].ShowData();
+            }
             
         }
 
