@@ -85,11 +85,6 @@ namespace WindowsFormsApplication1
         {
             File_Owner fo = new File_Owner(null, true);
 
-            //foreach (var n in pbList)
-            //{
-            //    fo.WriteNum(n.num1.NumToString(), n.num2.NumToString(), n.num3.NumToString(), n.num4.NumToString(), n.num5.NumToString(), n.num6.NumToString(), n.num7.NumToString());
-            //}
-
             if (pbList.Count != 0)
             {
                 for (int i = 0; i < pbList.Count; i++)
