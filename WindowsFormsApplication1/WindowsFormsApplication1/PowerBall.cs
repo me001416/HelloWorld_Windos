@@ -9,6 +9,10 @@ namespace WindowsFormsApplication1
 {
     public struct PowerBall
     {
+        int _mouth;
+        int _day;
+        int _year;
+
         //
         // number.
         //
@@ -23,9 +27,62 @@ namespace WindowsFormsApplication1
         //
         // mm/dd/yyyy
         //
-        public int mouth;
-        public int day;
-        public int year;
+        public int mouth
+        {
+            get
+            {
+                return _mouth;
+            }
+            set
+            {
+                if (value < 1 || value > 12)
+                {
+                    MessageBox.Show("The value " + value + " was wrong " + "\r" + "It shound > 0 and < 13");
+                }
+                else
+                {
+                    _mouth = value;
+                }
+            }
+        }
+
+        public int day
+        {
+            get
+            {
+                return _day;
+            }
+            set
+            {
+                if (value < 1 || value > 31)
+                {
+                    MessageBox.Show("The value " + value + " was wrong " + "\r" + "It shound > 0 and < 32");
+                }
+                else
+                {
+                    _day = value;
+                }
+            }
+        }
+
+        public int year
+        {
+            get
+            {
+                return _year;
+            }
+            set
+            {
+                if (value < 1990 || value > 2050)
+                {
+                    MessageBox.Show("The value " + value + " was wrong " + "\r" + "It shound > 1989 and < 2051");
+                }
+                else
+                {
+                    _year = value;
+                }
+            }
+        }
 
         public PowerBall(int xx) : this()
         {
@@ -57,6 +114,10 @@ namespace WindowsFormsApplication1
             num5.SpecialNum = false;
             num6.SpecialNum = false;
             num7.SpecialNum = true;
+
+            mouth = 1;
+            day   = 1;
+            year  = 1990;
         }
 
         public void ShowData()

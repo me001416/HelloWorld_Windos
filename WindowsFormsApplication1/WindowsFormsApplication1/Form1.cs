@@ -99,7 +99,7 @@ namespace WindowsFormsApplication1
         private void button6_Click(object sender, EventArgs e)
         {
             File_Owner fileOwner = new File_Owner(null, false);
-            List<PowerBall> _PowerBall = new List<PowerBall>();
+            List<PowerBall> _PowerBall;
             //string str;
 
             //str = 
@@ -109,7 +109,10 @@ namespace WindowsFormsApplication1
 
             if (_PowerBall.Count != 0)
             {
-                _PowerBall[_PowerBall.Count - 1].ShowData();
+                for (int i = 0; i < _PowerBall.Count; i++)
+                {
+                    pbList.Add(_PowerBall[i]);
+                }
             }
             
         }
