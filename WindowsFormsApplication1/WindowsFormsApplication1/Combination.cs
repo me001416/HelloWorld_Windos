@@ -35,16 +35,7 @@ namespace WindowsFormsApplication1
 
         public FourCombin(int x1, int x2, int x3, int x4, int c1, int m1, int d1, int y1) : base(x1, x2, x3, c1, m1, d1, y1)
         {
-            num1 = x1;
-            num2 = x2;
-            num3 = x3;
             num4 = x4;
-
-            count = c1;
-
-            mouth = m1;
-            day = d1;
-            year = y1;
         }
     }
 
@@ -54,22 +45,17 @@ namespace WindowsFormsApplication1
 
         public FiveCombin(int x1, int x2, int x3, int x4, int x5, int c1, int m1, int d1, int y1) : base(x1, x2, x3, x4, c1, m1, d1, y1)
         {
-            num1 = x1;
-            num2 = x2;
-            num3 = x3;
-            num4 = x4;
             num5 = x5;
-
-            count = c1;
-
-            mouth = m1;
-            day = d1;
-            year = y1;
         }
     }
 
     public class SixCombin : FiveCombin
     {
         public int num6;
+
+        public SixCombin(int x1, int x2, int x3, int x4, int x5, int x6, int c1, int m1, int d1, int y1) : base(x1, x2, x3, x4, x5, c1, m1, d1, y1)
+        {
+            num6 = x6;
+        }
     }
 }
