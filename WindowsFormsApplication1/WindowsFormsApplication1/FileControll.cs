@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
             sWriter.WriteLine(',');
         }
 
-        public void WriteReport(string[] str, int count)
+        public void WriteReport(List<string> str, int count)
         {
             for (int i = 0; i < count; i++)
             {
