@@ -30,9 +30,9 @@ namespace WindowsFormsApplication1
                     _NumArray[1] = _PowerBall[i].num2.num;
                     _NumArray[2] = _PowerBall[i].num3.num;
                     _NumArray[3] = _PowerBall[i].num4.num;
-                    _NumArray[4] = _PowerBall[i].num5.num;
-                    _NumArray[5] = _PowerBall[i].num6.num;
-                    _NumArray[6] = _PowerBall[i].num7.num;
+                    //_NumArray[4] = _PowerBall[i].num5.num;
+                    //_NumArray[5] = _PowerBall[i].num6.num;
+                    //_NumArray[6] = _PowerBall[i].num7.num;
 
                     for (int index0 = 2; index0 < 7; index0++)
                     {
@@ -40,13 +40,19 @@ namespace WindowsFormsApplication1
                         {
                             for (int index2 = 0; index2 < 5; index2++)
                             {
-                                if (((index2 + index1) < 6 && (index2 + index0) < 7) && ((index2 != (index2 + index1)) && (index2 != (index2 + index0)) && ((index2 + index1) != (index2 + index0))))
+                                //if (((index2 + index1) < 6 && (index2 + index0) < 7) && ((index2 != (index2 + index1)) && (index2 != (index2 + index0)) && ((index2 + index1) != (index2 + index0))))
+                                //if ((index2 + index1) < 7 && (index2 + index0) < 7 && (index0 + index1) < 7)
+                                if ((index2 + index1) < 7 && (index2 + index0) < 7)
                                 {
-                                    _ThreeCombin.Add(new ThreeCombin(_NumArray[index2], _NumArray[index2 + index1], _NumArray[index2 + index0], i + 1, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
-
-                                    if (i == 0)
+                                    if ((index2 != index1) && (index2 != index0) && (index1 != index0))
                                     {
-                                        index3++;
+                                        //_ThreeCombin.Add(new ThreeCombin(_NumArray[index2], _NumArray[index2 + index1], _NumArray[index2 + index0], i + 1, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                                        _ThreeCombin.Add(new ThreeCombin(_NumArray[index2], _NumArray[index1], _NumArray[index0], i + 1, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+
+                                        if (i == 0)
+                                        {
+                                            index3++;
+                                        }
                                     }
                                 }
                             }
@@ -61,7 +67,7 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < _ThreeCombin.Count; i++)
                 {
-                    _ThreeCombin[i].update();
+                    //_ThreeCombin[i].update();
                     stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
                 }
 
