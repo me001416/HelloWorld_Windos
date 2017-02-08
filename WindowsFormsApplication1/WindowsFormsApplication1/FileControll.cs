@@ -153,24 +153,31 @@ namespace WindowsFormsApplication1
                         {
                             case 0:
                                 _nPowerBall.num1.num = Int32.Parse(str2);
+                                _nPowerBall.num1.SpecialNum = false;
                                 break;
                             case 1:
                                 _nPowerBall.num2.num = Int32.Parse(str2);
+                                _nPowerBall.num2.SpecialNum = false;
                                 break;
                             case 2:
                                 _nPowerBall.num3.num = Int32.Parse(str2);
+                                _nPowerBall.num3.SpecialNum = false;
                                 break;
                             case 3:
                                 _nPowerBall.num4.num = Int32.Parse(str2);
+                                _nPowerBall.num4.SpecialNum = false;
                                 break;
                             case 4:
                                 _nPowerBall.num5.num = Int32.Parse(str2);
+                                _nPowerBall.num5.SpecialNum = false;
                                 break;
                             case 5:
                                 _nPowerBall.num6.num = Int32.Parse(str2);
+                                _nPowerBall.num6.SpecialNum = false;
                                 break;
                             case 6:
                                 _nPowerBall.num7.num = Int32.Parse(str2);
+                                _nPowerBall.num7.SpecialNum = true;
                                 break;
                             case 7:
                                 _nPowerBall.mouth = Int32.Parse(str2);

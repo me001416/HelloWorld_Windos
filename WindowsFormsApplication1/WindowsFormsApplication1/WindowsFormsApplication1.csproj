@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculate.cs" />
+    <Compile Include="Combination.cs" />
     <Compile Include="FileControll.cs" />
     <Compile Include="PowerBall.cs" />
     <Compile Include="Form1.cs">
