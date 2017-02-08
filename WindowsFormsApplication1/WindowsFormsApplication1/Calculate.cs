@@ -61,6 +61,7 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < _ThreeCombin.Count; i++)
                 {
+                    _ThreeCombin[i].update();
                     stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
                 }
 

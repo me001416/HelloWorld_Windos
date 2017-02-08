@@ -9,9 +9,9 @@ namespace WindowsFormsApplication1
         {
             if (x.Count != 0)
             {
-                for (int i = 1; i <= x.Count; i++)
+                for (int i = 1; i <= x.Count-1; i++)
                 {
-                    for (int j = 1; j <= x.Count; j++)
+                    for (int j = 1; j <= x.Count-1; j++)
                     {
                         if (x[j] < x[j - 1])
                         {

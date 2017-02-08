@@ -46,7 +46,17 @@ namespace WindowsFormsApplication1
 
         public void update()
         {
+            List<int> x = new List<int>();
 
+            x.Add(num1);
+            x.Add(num2);
+            x.Add(num3);
+
+            BubbleSort _BubbleSort = new BubbleSort(x, x.Count);
+
+            num1 = x[0];
+            num2 = x[1];
+            num3 = x[2];
         }
     }
 
