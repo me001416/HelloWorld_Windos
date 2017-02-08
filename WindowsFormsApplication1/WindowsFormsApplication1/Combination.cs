@@ -9,11 +9,17 @@ namespace WindowsFormsApplication1
         public int num2;
         public int num3;
 
-        public List<int> count;
+        public int count;
 
-        public List<int> mouth;
-        public List<int> day;
-        public List<int> year;
+        public int mouth;
+        public int day;
+        public int year;
+
+        //public List<int> count;
+
+        //public List<int> mouth;
+        //public List<int> day;
+        //public List<int> year;
 
         public ThreeCombin(int x1, int x2, int x3, int c1, int m1, int d1, int y1)
         {
@@ -21,15 +27,26 @@ namespace WindowsFormsApplication1
             num2 = x2;
             num3 = x3;
 
-            count = new List<int>();
-            count.Add(c1);
+            count = c1;
 
-            mouth = new List<int>();
-            mouth.Add(m1);
-            day = new List<int>();
-            day.Add(d1);
-            year = new List<int>();
-            year.Add(y1);
+            mouth = m1;
+            day = d1;
+            year = y1;
+
+            //count = new List<int>();
+            //count.Add(c1);
+
+            //mouth = new List<int>();
+            //mouth.Add(m1);
+            //day = new List<int>();
+            //day.Add(d1);
+            //year = new List<int>();
+            //year.Add(y1);
+        }
+
+        public void update()
+        {
+
         }
     }
 

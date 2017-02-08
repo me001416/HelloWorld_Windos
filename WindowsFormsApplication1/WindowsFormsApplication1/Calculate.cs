@@ -12,6 +12,7 @@ namespace WindowsFormsApplication1
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
             List<ThreeCombin> _ThreeCombin = new List<ThreeCombin>();
             List<string> stringList = new List<string>();
+            int index3 = 0;
 
             if (_PowerBall.Count != 0)
             {
@@ -33,17 +34,37 @@ namespace WindowsFormsApplication1
                     _NumArray[5] = _PowerBall[i].num6.num;
                     _NumArray[6] = _PowerBall[i].num7.num;
 
-                    for (int j = 0; j < 7; j++)
+                    for (int index0 = 2; index0 < 7; index0++)
                     {
-                        for (int k = 0; k < 5; k++)
+                        for (int index1 = 1; index1 < 6; index1++)
                         {
-                            if ((j + k + 2) < 7)
+                            for (int index2 = 0; index2 < 5; index2++)
                             {
-                                _ThreeCombin.Add(new ThreeCombin(_NumArray[j], _NumArray[j + k + 1], _NumArray[j + k + 2], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                                if (((index2 + index1) < 6 && (index2 + index0) < 7) && ((index2 != (index2 + index1)) && (index2 != (index2 + index0)) && ((index2 + index1) != (index2 + index0))))
+                                {
+                                    _ThreeCombin.Add(new ThreeCombin(_NumArray[index2], _NumArray[index2 + index1], _NumArray[index2 + index0], i + 1, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+
+                                    if (i == 0)
+                                    {
+                                        index3++;
+                                    }
+                                }
                             }
                         }
                     }
                 }
+            }
+
+            if (_ThreeCombin.Count != 0)
+            {
+                stringList.Add("index3 =" + index3);
+
+                for (int i = 0; i < _ThreeCombin.Count; i++)
+                {
+                    stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
+                }
+
+                stringList.Add("\r");
             }
 
             stringList.Add("Count = " + _PowerBall.Count);
