@@ -27,8 +27,24 @@ namespace WindowsFormsApplication1
                     array[_PowerBall[i].num7.num]++;
 
                     Combinations combin = new Combinations();
+                    List<List<int>> numList = new List<List<int>>();
+                    int k = 3;
 
-                    _ThreeCombin.AddRange(combin.combine(_PowerBall[i], 3, i));
+                    _PowerBall[i].UpdateList();
+                    numList = combin.NewCombine(_PowerBall[i].numList, k);
+
+                    if (numList.Count != 0)
+                    {
+                        for (int j = 0; j < numList.Count; j++)
+                        {
+                            if (k == 3)
+                            {
+                                _ThreeCombin.Add(new ThreeCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                            }
+                        }
+                    }
+
+                    
                 }
             }
 
@@ -43,6 +59,7 @@ namespace WindowsFormsApplication1
                     }
                     index3++;
 
+                    _ThreeCombin[i].NumToLIst(true);
                     stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
                 }
 

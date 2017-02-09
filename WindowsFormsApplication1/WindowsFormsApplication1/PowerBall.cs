@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
         //
         // List of number.
         //
-        public List<PowerBallNumber> numList = new List<PowerBallNumber>();
+        public List<int> numList = new List<int>();
 
         //
         // mm/dd/yyyy
@@ -132,13 +132,13 @@ namespace WindowsFormsApplication1
 
         public void UpdateList()
         {
-            numList.Add(num1);
-            numList.Add(num2);
-            numList.Add(num3);
-            numList.Add(num4);
-            numList.Add(num5);
-            numList.Add(num6);
-            numList.Add(num7);
+            numList.Add(num1.num);
+            numList.Add(num2.num);
+            numList.Add(num3.num);
+            numList.Add(num4.num);
+            numList.Add(num5.num);
+            numList.Add(num6.num);
+            numList.Add(num7.num);
         }
     }
 

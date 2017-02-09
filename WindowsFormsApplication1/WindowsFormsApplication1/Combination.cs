@@ -18,6 +18,16 @@ namespace WindowsFormsApplication1
         public int day;
         public int year;
 
+        public ThreeCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
+        {
+            numList = new List<int>(sourceList);
+
+            count = c1;
+            mouth = m1;
+            day = d1;
+            year = y1;
+        }
+
         public ThreeCombin(int c1, int m1, int d1, int y1)
         {
             count = c1;
@@ -106,57 +116,40 @@ namespace WindowsFormsApplication1
     
     public class Combinations
     {
-        public List<ThreeCombin> combine(PowerBall powerBall, int k, int count)
+        public List<List<int>> NewCombine(List<int> sourceList, int k)
         {
-            List<ThreeCombin> resultList = new List<ThreeCombin>();
+            List<List<int>> resultList = new List<List<int>>();
 
-            powerBall.UpdateList();
-
-            if (powerBall.numList.Count != 0 && k != 0 && powerBall.numList.Count >= k)
+            if (sourceList.Count != 0 && k != 0 && sourceList.Count >= k )
             {
-                ThreeCombin tCombinList = new ThreeCombin(count, powerBall.mouth, powerBall.day, powerBall.year);
-                doCombin(0, powerBall.numList.Count, k, resultList, tCombinList, powerBall);
-            }
-
-            if (count == 0)
-            {
-                //MessageBox.Show("resultList.Count : " + resultList.Count);
-                //MessageBox.Show("ResultList[0] [" + resultList[0].num1 + "][" + resultList[0].num2 + "][" + resultList[0].num3 + "]: ");
+                List<int> tCombinList = new List<int>();
+                doCombin(0, sourceList.Count, k, resultList, tCombinList, sourceList);
             }
 
             return resultList;
         }
 
-        public void doCombin(int start, int end, int deep, List<ThreeCombin> resultList, ThreeCombin tCombinList, PowerBall sourceList)
+        public void doCombin(int start, int end, int deep, List<List<int>> resultList, List<int> tCombinList, List<int> sourceList)
         {
             for (int i = start; i < end; i++)
             {
-                if (end - i < deep)
+                if (end - i + 1 < deep)
                 {
-                    //MessageBox.Show("i : " + i);
-                    //MessageBox.Show("deep : " + deep);
-                    //MessageBox.Show("ResultList[0] [" + resultList[0].num1 + "][" + resultList[0].num2 + "][" + resultList[0].num3 + "]: ");
                     return;
                 }
-                //MessageBox.Show("sourceList.numList[i].num : " + sourceList.numList[i].num);
-                tCombinList.numList.Add(sourceList.numList[i].num);
+
+                tCombinList.Add(sourceList[i]);
 
                 if (deep - 1 == 0)
                 {
-                    tCombinList.NumToLIst(false);
-
-                    //MessageBox.Show("tCombinList [" + tCombinList.num1 + "][" + tCombinList.num2 + "][" + tCombinList.num3 + "]: " );
-
-                    //resultList.Add(tCombinList);
-                    resultList.Add(new ThreeCombin(tCombinList.num1, tCombinList.num2, tCombinList.num3, tCombinList.count, tCombinList.mouth, tCombinList.day, tCombinList.year));
-                    tCombinList.numList.RemoveAt(tCombinList.numList.Count - 1);
-
-                    //MessageBox.Show("ResultList[0] [" + resultList[0].num1 + "][" + resultList[0].num2 + "][" + resultList[0].num3 + "]: ");
+                    MessageBox.Show("tCombinList.Count : " + tCombinList.Count);
+                    resultList.Add(new List<int>(tCombinList));
+                    tCombinList.RemoveAt(tCombinList.Count - 1);
                 }
                 else
                 {
                     doCombin(i + 1, end, deep - 1, resultList, tCombinList, sourceList);
-                    tCombinList.numList.RemoveAt(tCombinList.numList.Count -1);
+                    tCombinList.RemoveAt(tCombinList.Count - 1);
                 }
             }
         }
