@@ -34,11 +34,15 @@ namespace WindowsFormsApplication1
 
             if (_ThreeCombin.Count != 0)
             {
-                stringList.Add("index3 =" + index3);
-
                 for (int i = 0; i < _ThreeCombin.Count; i++)
                 {
                     //_ThreeCombin[i].update();
+                    if (_ThreeCombin[i].count != 0)
+                    {
+                        stringList.Add("index3 =" + index3);
+                    }
+                    index3++;
+
                     stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
                 }
 
