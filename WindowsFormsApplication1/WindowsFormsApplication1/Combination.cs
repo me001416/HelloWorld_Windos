@@ -73,4 +73,30 @@ namespace WindowsFormsApplication1
             num6 = x6;
         }
     }
+    /*
+    public class Combinations
+    {
+        public List<ThreeCombin> combine(List<PowerBall> list, int x)
+        {
+
+        }
+
+        public void doCombin(int start, int end, int deep, List<ThreeCombin> resultList, List<int> tempList, List<PowerBall> sourceList)
+        {
+            for (int i = start; i <= end; i++)
+            {
+                if (end - i + 1 < deep)
+                {
+                    return;
+                }
+
+                tempList.Add(sourceList[i]);
+
+                if (deep - 1 == 0)
+                {
+                    resultList
+                }
+            }
+        }
+    }*/
 }

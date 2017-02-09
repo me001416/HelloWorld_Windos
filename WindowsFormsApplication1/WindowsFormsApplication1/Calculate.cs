@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
                     //_NumArray[4] = _PowerBall[i].num5.num;
                     //_NumArray[5] = _PowerBall[i].num6.num;
                     //_NumArray[6] = _PowerBall[i].num7.num;
-
+                    /*
                     for (int index0 = 2; index0 < 7; index0++)
                     {
                         for (int index1 = 1; index1 < 6; index1++)
@@ -57,7 +57,7 @@ namespace WindowsFormsApplication1
                                 }
                             }
                         }
-                    }
+                    }*/
                 }
             }
 

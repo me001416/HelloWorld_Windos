@@ -103,7 +103,7 @@ namespace WindowsFormsApplication1
             Boolean refresh = true;
             Char[] chars = new Char[40];
 
-            PowerBall _nPowerBall;
+            //PowerBall _nPowerBall;
             List<PowerBall> _PowerBall = new List<PowerBall>();
 
             while (!sReader.EndOfStream)
@@ -116,7 +116,8 @@ namespace WindowsFormsApplication1
                 //
                 // Initialize variable on while loop.
                 //
-                _nPowerBall = new PowerBall();
+                PowerBall _nPowerBall = new PowerBall();
+                //_nPowerBall = null;
                 j = 0;
                 index0 = 0;
                 refresh = true;

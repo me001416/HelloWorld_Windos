@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public struct PowerBall
+    public class PowerBall
     {
         int _mouth;
         int _day;
@@ -16,13 +16,18 @@ namespace WindowsFormsApplication1
         //
         // number.
         //
-        public PowerBallNumber num1;
-        public PowerBallNumber num2;
-        public PowerBallNumber num3;
-        public PowerBallNumber num4;
-        public PowerBallNumber num5;
-        public PowerBallNumber num6;
-        public PowerBallNumber num7;
+        public PowerBallNumber num1 = new PowerBallNumber();
+        public PowerBallNumber num2 = new PowerBallNumber();
+        public PowerBallNumber num3 = new PowerBallNumber();
+        public PowerBallNumber num4 = new PowerBallNumber();
+        public PowerBallNumber num5 = new PowerBallNumber();
+        public PowerBallNumber num6 = new PowerBallNumber();
+        public PowerBallNumber num7 = new PowerBallNumber();
+
+        //
+        // List of number.
+        //
+        List<PowerBallNumber> Num = new List<PowerBallNumber>();
 
         //
         // mm/dd/yyyy
@@ -84,17 +89,17 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public PowerBall(int xx) : this()
-        {
-            this.num1.num = xx;
-        }
+        //public PowerBall(int xx)
+        //{
+        //    this.num1.num = xx;
+        //}
 
         //
         // return a string.
         //
         public override string ToString()
         {
-            return "Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num;
+            return "Num1 : " + this.num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num;
         }
 
         public void SetNum(int x1, int x2, int x3, int x4, int x5, int x6, int x7)
@@ -124,9 +129,20 @@ namespace WindowsFormsApplication1
         {
             MessageBox.Show("Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num);
         }
+
+        public void UpdateList()
+        {
+            Num.Add(num1);
+            Num.Add(num2);
+            Num.Add(num3);
+            Num.Add(num4);
+            Num.Add(num5);
+            Num.Add(num6);
+            Num.Add(num7);
+        }
     }
 
-    public struct PowerBallNumber
+    public class PowerBallNumber
     {
         int _num;
 
@@ -151,6 +167,11 @@ namespace WindowsFormsApplication1
                 }
             }
         }
+
+        //public PowerBallNumber(int x)
+        //{
+        //    num = x;
+        //}
 
         //
         // Is Special Number or not.
