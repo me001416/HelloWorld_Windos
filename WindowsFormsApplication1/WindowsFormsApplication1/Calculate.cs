@@ -12,7 +12,7 @@ namespace WindowsFormsApplication1
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
             List<ThreeCombin> _ThreeCombin = new List<ThreeCombin>();
             List<string> stringList = new List<string>();
-            int index3 = 0;
+            //int index3 = 0;
 
             if (_PowerBall.Count != 0)
             {
@@ -31,6 +31,7 @@ namespace WindowsFormsApplication1
                     int k = 3;
 
                     _PowerBall[i].UpdateList();
+                    _PowerBall[i].numList.Sort();
                     numList = combin.NewCombine(_PowerBall[i].numList, k);
 
                     if (numList.Count != 0)
@@ -43,8 +44,6 @@ namespace WindowsFormsApplication1
                             }
                         }
                     }
-
-                    
                 }
             }
 
@@ -53,11 +52,11 @@ namespace WindowsFormsApplication1
                 for (int i = 0; i < _ThreeCombin.Count; i++)
                 {
                     //_ThreeCombin[i].update();
-                    if (_ThreeCombin[i].count != 0)
-                    {
-                        stringList.Add("index3 =" + index3);
-                    }
-                    index3++;
+                    //if (_ThreeCombin[i].count != 0)
+                    //{
+                        //stringList.Add("index3 =" + index3);
+                    //}
+                    //index3++;
 
                     _ThreeCombin[i].NumToLIst(true);
                     stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
