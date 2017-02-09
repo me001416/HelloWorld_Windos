@@ -9,11 +9,21 @@ namespace WindowsFormsApplication1
         public int num2;
         public int num3;
 
+        public List<int> numList = new List<int>();
+
         public int count;
 
         public int mouth;
         public int day;
         public int year;
+
+        public ThreeCombin(int c1, int m1, int d1, int y1)
+        {
+            count = c1;
+            mouth = m1;
+            day = d1;
+            year = y1;
+        }
 
         public ThreeCombin(int x1, int x2, int x3, int c1, int m1, int d1, int y1)
         {
@@ -30,17 +40,36 @@ namespace WindowsFormsApplication1
 
         public void update()
         {
-            List<int> x = new List<int>();
+            numList = new List<int>();
 
-            x.Add(num1);
-            x.Add(num2);
-            x.Add(num3);
+            numList.Add(num1);
+            numList.Add(num2);
+            numList.Add(num3);
 
-            BubbleSort _BubbleSort = new BubbleSort(x, x.Count);
+            BubbleSort _BubbleSort = new BubbleSort(numList, numList.Count);
 
-            num1 = x[0];
-            num2 = x[1];
-            num3 = x[2];
+            num1 = numList[0];
+            num2 = numList[1];
+            num3 = numList[2];
+        }
+
+        public void NumToLIst(Boolean Active)
+        {
+            if (Active)
+            {
+                numList.Add(num1);
+                numList.Add(num2);
+                numList.Add(num3);
+            }
+            else
+            {
+                if (numList.Count == 3)
+                {
+                    num1 = numList[0];
+                    num2 = numList[1];
+                    num3 = numList[2];
+                }
+            }
         }
     }
 
@@ -73,15 +102,25 @@ namespace WindowsFormsApplication1
             num6 = x6;
         }
     }
-    /*
+    
     public class Combinations
     {
-        public List<ThreeCombin> combine(List<PowerBall> list, int x)
+        public List<ThreeCombin> combine(PowerBall powerBall, int k, int count)
         {
+            List<ThreeCombin> resultList = new List<ThreeCombin>();
 
+            powerBall.UpdateList();
+
+            if (powerBall.numList.Count != 0 && k != 0 && powerBall.numList.Count >= k)
+            {
+                ThreeCombin tCombinList = new ThreeCombin(count, powerBall.mouth, powerBall.day, powerBall.year);
+                doCombin(1, powerBall.numList.Count, k, resultList, tCombinList, powerBall);
+            }
+
+            return resultList;
         }
 
-        public void doCombin(int start, int end, int deep, List<ThreeCombin> resultList, List<int> tempList, List<PowerBall> sourceList)
+        public void doCombin(int start, int end, int deep, List<ThreeCombin> resultList, ThreeCombin tCombinList, PowerBall sourceList)
         {
             for (int i = start; i <= end; i++)
             {
@@ -90,13 +129,19 @@ namespace WindowsFormsApplication1
                     return;
                 }
 
-                tempList.Add(sourceList[i]);
+                tCombinList.numList.Add(sourceList.numList[i].num);
 
                 if (deep - 1 == 0)
                 {
-                    resultList
+                    resultList.Add(tCombinList);
+                    tCombinList.numList.RemoveAt(tCombinList.numList.Count -1);
+                }
+                else
+                {
+                    doCombin(i + 1, end, deep, resultList, tCombinList, sourceList);
+                    tCombinList.numList.RemoveAt(tCombinList.numList.Count -1);
                 }
             }
         }
-    }*/
+    }
 }

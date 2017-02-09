@@ -26,38 +26,9 @@ namespace WindowsFormsApplication1
                     array[_PowerBall[i].num6.num]++;
                     array[_PowerBall[i].num7.num]++;
 
-                    _NumArray[0] = _PowerBall[i].num1.num;
-                    _NumArray[1] = _PowerBall[i].num2.num;
-                    _NumArray[2] = _PowerBall[i].num3.num;
-                    _NumArray[3] = _PowerBall[i].num4.num;
-                    //_NumArray[4] = _PowerBall[i].num5.num;
-                    //_NumArray[5] = _PowerBall[i].num6.num;
-                    //_NumArray[6] = _PowerBall[i].num7.num;
-                    /*
-                    for (int index0 = 2; index0 < 7; index0++)
-                    {
-                        for (int index1 = 1; index1 < 6; index1++)
-                        {
-                            for (int index2 = 0; index2 < 5; index2++)
-                            {
-                                //if (((index2 + index1) < 6 && (index2 + index0) < 7) && ((index2 != (index2 + index1)) && (index2 != (index2 + index0)) && ((index2 + index1) != (index2 + index0))))
-                                //if ((index2 + index1) < 7 && (index2 + index0) < 7 && (index0 + index1) < 7)
-                                if ((index2 + index1) < 7 && (index2 + index0) < 7)
-                                {
-                                    if ((index2 != index1) && (index2 != index0) && (index1 != index0))
-                                    {
-                                        //_ThreeCombin.Add(new ThreeCombin(_NumArray[index2], _NumArray[index2 + index1], _NumArray[index2 + index0], i + 1, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
-                                        _ThreeCombin.Add(new ThreeCombin(_NumArray[index2], _NumArray[index1], _NumArray[index0], i + 1, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                    Combinations combin = new Combinations();
 
-                                        if (i == 0)
-                                        {
-                                            index3++;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }*/
+                    _ThreeCombin.AddRange(combin.combine(_PowerBall[i], 3, i));
                 }
             }
 
