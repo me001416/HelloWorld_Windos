@@ -72,16 +72,21 @@ namespace WindowsFormsApplication1
                 {
                     _ThreeCombin[i].NumToLIst(true);
                     stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
-                }
 
-                if (_ThreeCombin.Count == 1)
-                {
-                    index3++;
-                    
-                    if (index3 - 1 < 1)
+                    if (_ThreeCombin[i].count == 0)
                     {
-                        stringList.Add("index3 =" + (index3 - 1));
-                        index3 = 0;
+                        index3++;
+                    }
+                    else
+                    {
+                        if (_ThreeCombin[i].count == 1)
+                        {
+                            if (index3 !=0)
+                            {
+                                stringList.Add("index3 =" + index3);
+                                index3 = 0;
+                            }
+                        }
                     }
                 }
 
@@ -97,14 +102,19 @@ namespace WindowsFormsApplication1
                     _FourCombin[i].NumToLIst(true);
                     stringList.Add("Number Combination [" + _FourCombin[i].num1 + "][" + _FourCombin[i].num2 + "][" + _FourCombin[i].num3 + "][" + _FourCombin[i].num4 + "], count = " + _FourCombin[i].count);
 
-                    if (_FourCombin.Count == 1)
+                    if (_FourCombin[i].count == 0)
                     {
                         index3++;
-
-                        if (index3 - 1 < 1)
+                    }
+                    else
+                    {
+                        if (_FourCombin[i].count == 1)
                         {
-                            stringList.Add("index3 =" + (index3 - 1));
-                            index3 = 0;
+                            if (index3 != 0)
+                            {
+                                stringList.Add("index3 =" + index3);
+                                index3 = 0;
+                            }
                         }
                     }
                 }
@@ -121,14 +131,19 @@ namespace WindowsFormsApplication1
                     _FiveCombin[i].NumToLIst(true);
                     stringList.Add("Number Combination [" + _FiveCombin[i].num1 + "][" + _FiveCombin[i].num2 + "][" + _FiveCombin[i].num3 + "][" + _FiveCombin[i].num4 + "][" + _FiveCombin[i].num5 + "], count = " + _FiveCombin[i].count);
 
-                    if (_FiveCombin.Count == 1)
+                    if (_FiveCombin[i].count == 0)
                     {
                         index3++;
-
-                        if (index3 - 1 < 1)
+                    }
+                    else
+                    {
+                        if (_FiveCombin[i].count == 1)
                         {
-                            stringList.Add("index3 =" + (index3 - 1));
-                            index3 = 0;
+                            if (index3 != 0)
+                            {
+                                stringList.Add("index3 =" + index3);
+                                index3 = 0;
+                            }
                         }
                     }
                 }
@@ -145,16 +160,19 @@ namespace WindowsFormsApplication1
                     _SixCombin[i].NumToLIst(true);
                     stringList.Add("Number Combination [" + _SixCombin[i].num1 + "][" + _SixCombin[i].num2 + "][" + _SixCombin[i].num3 + "][" + _SixCombin[i].num4 + "][" + _SixCombin[i].num5 + "][" + _SixCombin[i].num6 + "], count = " + _SixCombin[i].count);
 
-                    index3++;
-
-                    if (_FiveCombin.Count == 1)
+                    if (_SixCombin[i].count == 0)
                     {
                         index3++;
-
-                        if (index3 - 1 < 1)
+                    }
+                    else
+                    {
+                        if (_SixCombin[i].count == 1)
                         {
-                            stringList.Add("index3 =" + (index3 - 1));
-                            index3 = 0;
+                            if (index3 != 0)
+                            {
+                                stringList.Add("index3 =" + index3);
+                                index3 = 0;
+                            }
                         }
                     }
                 }
@@ -172,6 +190,11 @@ namespace WindowsFormsApplication1
             fileOwner.WriteReport(stringList, stringList.Count);
 
             fileOwner.StopWrite();
+        }
+
+        public void ReportCombinations(int count, List<int> NumLIst)
+        {
+
         }
     }
 }
