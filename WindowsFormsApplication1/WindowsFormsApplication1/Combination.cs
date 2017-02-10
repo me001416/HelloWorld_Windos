@@ -95,6 +95,24 @@ namespace WindowsFormsApplication1
     {
         public int num4;
 
+        public FourCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
+            : base(sourceList, c1, m1, d1, y1)
+        {
+            numList = sourceList;
+
+            if (numList.Count == 3)
+            {
+                num1 = numList[0];
+                num2 = numList[1];
+                num3 = numList[2];
+            }
+
+            count = c1;
+            mouth = m1;
+            day = d1;
+            year = y1;
+        }
+
         public FourCombin(int x1, int x2, int x3, int x4, int c1, int m1, int d1, int y1) : base(x1, x2, x3, c1, m1, d1, y1)
         {
             num4 = x4;
