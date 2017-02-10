@@ -98,19 +98,13 @@ namespace WindowsFormsApplication1
         public FourCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
             : base(sourceList, c1, m1, d1, y1)
         {
-            numList = sourceList;
-
-            if (numList.Count == 3)
+            if (numList.Count == 4)
             {
                 num1 = numList[0];
                 num2 = numList[1];
                 num3 = numList[2];
+                num4 = numList[3];
             }
-
-            count = c1;
-            mouth = m1;
-            day = d1;
-            year = y1;
         }
 
         public FourCombin(int x1, int x2, int x3, int x4, int c1, int m1, int d1, int y1) : base(x1, x2, x3, c1, m1, d1, y1)
@@ -123,6 +117,19 @@ namespace WindowsFormsApplication1
     {
         public int num5;
 
+        public FiveCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
+            : base(sourceList, c1, m1, d1, y1)
+        {
+            if (numList.Count == 5)
+            {
+                num1 = numList[0];
+                num2 = numList[1];
+                num3 = numList[2];
+                num4 = numList[3];
+                num5 = numList[4];
+            }
+        }
+
         public FiveCombin(int x1, int x2, int x3, int x4, int x5, int c1, int m1, int d1, int y1) : base(x1, x2, x3, x4, c1, m1, d1, y1)
         {
             num5 = x5;
@@ -132,6 +139,20 @@ namespace WindowsFormsApplication1
     public class SixCombin : FiveCombin
     {
         public int num6;
+
+        public SixCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
+            : base(sourceList, c1, m1, d1, y1)
+        {
+            if (numList.Count == 6)
+            {
+                num1 = numList[0];
+                num2 = numList[1];
+                num3 = numList[2];
+                num4 = numList[3];
+                num5 = numList[4];
+                num6 = numList[5];
+            }
+        }
 
         public SixCombin(int x1, int x2, int x3, int x4, int x5, int x6, int c1, int m1, int d1, int y1) : base(x1, x2, x3, x4, x5, c1, m1, d1, y1)
         {
