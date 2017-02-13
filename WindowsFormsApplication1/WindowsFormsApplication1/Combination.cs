@@ -59,6 +59,8 @@ namespace WindowsFormsApplication1
             day = d1;
             year = y1;
             hitCount = 0;
+            zeroListID = 0;
+            HitListID = 0;
         }
 
         public ThreeCombin(int c1, int m1, int d1, int y1)
