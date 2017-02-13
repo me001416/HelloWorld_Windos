@@ -4,6 +4,27 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    public class HitCombinations
+    {
+        public List<int> numList = new List<int>();
+        public int count;
+        public int mouth;
+        public int day;
+        public int year;
+        public int hitCount;
+
+        public HitCombinations(List<int> sourceList, int c1, int m1, int d1, int y1)
+        {
+            numList = sourceList;
+
+            count = c1;
+            mouth = m1;
+            day = d1;
+            year = y1;
+            hitCount = 0;
+        }
+    }
+
     public class ThreeCombin
     {
         public int num1;
@@ -19,6 +40,8 @@ namespace WindowsFormsApplication1
         public int year;
 
         public int hitCount;
+        public int zeroListID;
+        public int HitListID;
 
         public ThreeCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
         {

@@ -6,7 +6,8 @@ namespace WindowsFormsApplication1
 {
     public class HitCounter
     {
-        public Dictionary<string, ThreeCombin> ThreeCombinDic = new Dictionary<string, ThreeCombin>();
+        Dictionary<string, ThreeCombin> ThreeCombinDic = new Dictionary<string, ThreeCombin>();
+        Dictionary<int, List<HitCombinations>> HitCombinDic = new Dictionary<int, List<HitCombinations>>();
 
         public void Report(List<PowerBall> _PowerBall)
         {
@@ -223,19 +224,55 @@ namespace WindowsFormsApplication1
             {
                 for (int i = 0; i < combinListFor3.Count; i++)
                 {
+                    List<HitCombinations> tempHitCobin = new List<HitCombinations>();
+
                     if (combinListFor3[i].numList.Count != 0)
                     {
                         tempString = combinListFor3[i].numList[0].ToString() + combinListFor3[i].numList[1].ToString() + combinListFor3[i].numList[2].ToString();
 
                         if (!ThreeCombinDic.ContainsKey(tempString))
                         {
+                            if (HitCombinDic.Count != 0)
+                            {
+                                tempHitCobin = HitCombinDic[0];
+                                tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
+                            }
+                            else
+                            {
+                                tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
+                                HitCombinDic.Add(0, tempHitCobin);
+                            }
+
+                            combinListFor3[i].zeroListID = tempHitCobin.Count - 1;
+
                             ThreeCombinDic.Add(tempString, combinListFor3[i]);
                         }
                         else
                         {
-                            tempThreeCombin = ThreeCombinDic[tempString];
-                            MessageBox.Show("tempThreeCombin [" + tempThreeCombin.mouth + "][" + tempThreeCombin.day + "][" + tempThreeCombin.year + "]: ");
-                            MessageBox.Show("combinListFor3[" + i + "] [" + combinListFor3[i].mouth + "][" + combinListFor3[i].day + "][" + combinListFor3[i].year + "]: ");
+                            int hitID = 1;
+
+                            if (HitCombinDic.Count != 0)
+                            {
+                                if (HitCombinDic.ContainsKey(1))
+                                {
+
+                                }
+                                else
+                                {
+                                    tempThreeCombin = ThreeCombinDic[tempString];
+                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
+
+                                    MessageBox.Show("tempThreeCombin.zeroListID [" + tempThreeCombin.zeroListID + "]");
+
+                                    HitCombinDic.Add(hitID, tempHitCobin);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Something Wrong");
+                                return;
+                            }
                         }
                     }
                 }
