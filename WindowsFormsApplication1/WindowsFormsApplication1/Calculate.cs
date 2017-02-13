@@ -75,7 +75,10 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < _ThreeCombin.Count; i++)
                 {
-                    _ThreeCombin[i].NumToLIst(true);
+                    if (_ThreeCombin[i].numList.Count == 0)
+                    {
+                        _ThreeCombin[i].NumToLIst(true);
+                    }
 
                     if (_ThreeCombin[i].count == 0)
                     {
@@ -108,7 +111,10 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < _FourCombin.Count; i++)
                 {
-                    _FourCombin[i].NumToLIst(true);
+                    if (_FourCombin[i].numList.Count == 0)
+                    {
+                        _FourCombin[i].NumToLIst(true);
+                    }
 
                     if (_FourCombin[i].count == 0)
                     {
@@ -141,7 +147,10 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < _FiveCombin.Count; i++)
                 {
-                    _FiveCombin[i].NumToLIst(true);
+                    if (_FiveCombin[i].numList.Count == 0)
+                    {
+                        _FiveCombin[i].NumToLIst(true);
+                    }
 
                     if (_FiveCombin[i].count == 0)
                     {
@@ -174,7 +183,10 @@ namespace WindowsFormsApplication1
 
                 for (int i = 0; i < _SixCombin.Count; i++)
                 {
-                    _SixCombin[i].NumToLIst(true);
+                    if (_SixCombin[i].numList.Count == 0)
+                    {
+                        _SixCombin[i].NumToLIst(true);
+                    }
 
                     if (_SixCombin[i].count == 0)
                     {
@@ -201,8 +213,10 @@ namespace WindowsFormsApplication1
                 stringList.Add("\r");
             }
 
+            //MessageBox.Show("_ThreeCombin[0].numList.Count [" + _ThreeCombin[0].numList.Count + "]");
+
             RecordThreeCombinations(_ThreeCombin);
-            ReportThreeCombinations(stringList);
+            ReportCombinations(stringList);
 
             stringList.Add("Count = " + _PowerBall.Count);
 
@@ -216,17 +230,37 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
-        public void ReportThreeCombinations(List<string> strList)
+        public void ReportCombinations(List<string> strList)
         {
             foreach (var item in HitCombinDic)
             {
                 if (item.Key != 0)
                 {
-                    strList.Add("Hit [" + item.Value[item.Value.Count -1].numList[0] + "] [" + item.Value[item.Value.Count-1].numList[1] + "] [" + item.Value[item.Value.Count-1].numList[2] + "], Hit count : [" + item.Value.Count + "]");
+                    //MessageBox.Show("item.Value.numList.Count [" + item.Value[item.Value.Count - 1].numList.Count + "]");
+                    //if (item.Value[item.Value.Count - 1].numList.Count == 6)
+                    //{
+                    //    MessageBox.Show("item.Value.numList [" + item.Value[item.Value.Count - 1].numList[0] + "] [" + item.Value[item.Value.Count - 1].numList[1] + "][" + item.Value[item.Value.Count - 1].numList[2] + "][" + item.Value[item.Value.Count - 1].numList[3] + "][" + item.Value[item.Value.Count - 1].numList[4] + "][" + item.Value[item.Value.Count - 1].numList[5] + "]");
+                    //}
 
-                    for (int i = 0; i < item.Value.Count; i++)
+                    switch (item.Value[item.Value.Count - 1].numList.Count)
                     {
-                        strList.Add("Count : [" + item.Value[i].count + "], Hit time [" + item.Value[i].mouth + "] [" + item.Value[i].day + "] [" + item.Value[i].year + "]");
+                        case 3:
+                            strList.Add("Hit [" + item.Value[item.Value.Count -1].numList[0] + "] [" + item.Value[item.Value.Count-1].numList[1] + "] [" + item.Value[item.Value.Count-1].numList[2] + "], Hit count : [" + item.Value.Count + "]");
+
+                            for (int i = 0; i < item.Value.Count; i++)
+                            {
+                                strList.Add("Count : [" + item.Value[i].count + "], Hit time [" + item.Value[i].mouth + "] [" + item.Value[i].day + "] [" + item.Value[i].year + "]");
+                            }
+                            break;
+                        case 4:
+                            
+                            break;
+                        case 5:
+                            
+                            break;
+                        case 6:
+                            
+                            break;
                     }
                 }
                 else
