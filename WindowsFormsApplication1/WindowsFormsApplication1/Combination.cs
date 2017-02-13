@@ -18,6 +18,8 @@ namespace WindowsFormsApplication1
         public int day;
         public int year;
 
+        public int hitCount;
+
         public ThreeCombin(List<int> sourceList, int c1, int m1, int d1, int y1)
         {
             numList = sourceList;
@@ -33,6 +35,7 @@ namespace WindowsFormsApplication1
             mouth = m1;
             day = d1;
             year = y1;
+            hitCount = 0;
         }
 
         public ThreeCombin(int c1, int m1, int d1, int y1)
@@ -172,13 +175,6 @@ namespace WindowsFormsApplication1
                 doCombin(0, sourceList.Count, k, resultList, tCombinList, sourceList);
             }
 
-            //List<int> tempList = resultList[0];
-            //MessageBox.Show("tempList.Count : " + tempList.Count);
-            //MessageBox.Show("tCombinList[0] [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "]: ");
-
-            //tempList = resultList[1];
-            //MessageBox.Show("tCombinList[0] [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "]: ");
-
             return resultList;
         }
 
@@ -195,11 +191,7 @@ namespace WindowsFormsApplication1
 
                 if (deep - 1 == 0)
                 {
-                    //MessageBox.Show("tCombinList.Count : " + tCombinList.Count);
-                    //MessageBox.Show("tCombinList[0] [" + tCombinList[0] + "][" + tCombinList[1] + "][" + tCombinList[2] + "]: ");
-                    //resultList.Add(new List<int>{tCombinList[0], tCombinList[1], tCombinList[2]});
                     resultList.Add(new List<int> (tCombinList));
-                    //resultList.Add(tCombinList);
                     tCombinList.RemoveAt(tCombinList.Count - 1);
                 }
                 else

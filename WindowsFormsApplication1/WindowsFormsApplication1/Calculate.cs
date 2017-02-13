@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
     public class HitCounter
     {
+        public Dictionary<List<int>, ThreeCombin> ThreeCombinDic = new Dictionary<List<int>, ThreeCombin>();
+
         public void Report(List<PowerBall> _PowerBall)
         {
             int[] array = new int[50];
@@ -16,6 +19,7 @@ namespace WindowsFormsApplication1
             List<SixCombin> _SixCombin = new List<SixCombin>();
             List<string> stringList = new List<string>();
             int index3 = 0;
+            Boolean ShowMessage = false;
 
             if (_PowerBall.Count != 0)
             {
@@ -87,8 +91,11 @@ namespace WindowsFormsApplication1
                             }
                         }
                     }
-                    
-                    stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
+
+                    if (ShowMessage)
+                    {
+                        stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
+                    }
                 }
 
                 stringList.Add("\r");
@@ -117,8 +124,11 @@ namespace WindowsFormsApplication1
                             }
                         }
                     }
-                    
-                    stringList.Add("Number Combination [" + _FourCombin[i].num1 + "][" + _FourCombin[i].num2 + "][" + _FourCombin[i].num3 + "][" + _FourCombin[i].num4 + "], count = " + _FourCombin[i].count);
+
+                    if (ShowMessage)
+                    {
+                        stringList.Add("Number Combination [" + _FourCombin[i].num1 + "][" + _FourCombin[i].num2 + "][" + _FourCombin[i].num3 + "][" + _FourCombin[i].num4 + "], count = " + _FourCombin[i].count);
+                    }
                 }
 
                 stringList.Add("\r");
@@ -146,9 +156,12 @@ namespace WindowsFormsApplication1
                                 index3 = 0;
                             }
                         }
-                    } 
-                    
-                    stringList.Add("Number Combination [" + _FiveCombin[i].num1 + "][" + _FiveCombin[i].num2 + "][" + _FiveCombin[i].num3 + "][" + _FiveCombin[i].num4 + "][" + _FiveCombin[i].num5 + "], count = " + _FiveCombin[i].count);
+                    }
+
+                    if (ShowMessage)
+                    {
+                        stringList.Add("Number Combination [" + _FiveCombin[i].num1 + "][" + _FiveCombin[i].num2 + "][" + _FiveCombin[i].num3 + "][" + _FiveCombin[i].num4 + "][" + _FiveCombin[i].num5 + "], count = " + _FiveCombin[i].count);
+                    }
                 }
 
                 stringList.Add("\r");
@@ -178,11 +191,16 @@ namespace WindowsFormsApplication1
                         }
                     }
 
-                    stringList.Add("Number Combination [" + _SixCombin[i].num1 + "][" + _SixCombin[i].num2 + "][" + _SixCombin[i].num3 + "][" + _SixCombin[i].num4 + "][" + _SixCombin[i].num5 + "][" + _SixCombin[i].num6 + "], count = " + _SixCombin[i].count);
+                    if (ShowMessage)
+                    {
+                        stringList.Add("Number Combination [" + _SixCombin[i].num1 + "][" + _SixCombin[i].num2 + "][" + _SixCombin[i].num3 + "][" + _SixCombin[i].num4 + "][" + _SixCombin[i].num5 + "][" + _SixCombin[i].num6 + "], count = " + _SixCombin[i].count);
+                    }
                 }
                 
                 stringList.Add("\r");
             }
+
+            ReportThreeCombinations(_ThreeCombin);
 
             stringList.Add("Count = " + _PowerBall.Count);
 
@@ -196,9 +214,31 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
-        public void ReportCombinations(int count, List<int> NumLIst)
+        public void ReportThreeCombinations(List<ThreeCombin> combinListFor3)
         {
+            ThreeCombin tempThreeCombin;
 
+            if ( combinListFor3.Count != 0 )
+            {
+                for (int i = 0; i < combinListFor3.Count; i++)
+                {
+                    if (combinListFor3[i].numList.Count != 0)
+                    {
+                        if (!ThreeCombinDic.ContainsKey(combinListFor3[i].numList))
+                        {
+                            ThreeCombinDic.Add(combinListFor3[i].numList, combinListFor3[i]);
+                        }
+                        else
+                        {
+                            tempThreeCombin = ThreeCombinDic[combinListFor3[i].numList];
+                            MessageBox.Show("tempThreeCombin [" + tempThreeCombin.mouth + "][" + tempThreeCombin.day + "][" + tempThreeCombin.year + "]: ");
+                            MessageBox.Show("combinListFor3[" + i + "] [" + combinListFor3[i].mouth + "][" + combinListFor3[i].day + "][" + combinListFor3[i].year + "]: ");
+                        }
+                    }
+                }
+            }
+            
+            
         }
     }
 }
