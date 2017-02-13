@@ -6,7 +6,7 @@ namespace WindowsFormsApplication1
 {
     public class HitCounter
     {
-        public Dictionary<List<int>, ThreeCombin> ThreeCombinDic = new Dictionary<List<int>, ThreeCombin>();
+        public Dictionary<string, ThreeCombin> ThreeCombinDic = new Dictionary<string, ThreeCombin>();
 
         public void Report(List<PowerBall> _PowerBall)
         {
@@ -217,6 +217,7 @@ namespace WindowsFormsApplication1
         public void ReportThreeCombinations(List<ThreeCombin> combinListFor3)
         {
             ThreeCombin tempThreeCombin;
+            string tempString;
 
             if ( combinListFor3.Count != 0 )
             {
@@ -224,13 +225,15 @@ namespace WindowsFormsApplication1
                 {
                     if (combinListFor3[i].numList.Count != 0)
                     {
-                        if (!ThreeCombinDic.ContainsKey(combinListFor3[i].numList))
+                        tempString = combinListFor3[i].numList[0].ToString() + combinListFor3[i].numList[1].ToString() + combinListFor3[i].numList[2].ToString();
+
+                        if (!ThreeCombinDic.ContainsKey(tempString))
                         {
-                            ThreeCombinDic.Add(combinListFor3[i].numList, combinListFor3[i]);
+                            ThreeCombinDic.Add(tempString, combinListFor3[i]);
                         }
                         else
                         {
-                            tempThreeCombin = ThreeCombinDic[combinListFor3[i].numList];
+                            tempThreeCombin = ThreeCombinDic[tempString];
                             MessageBox.Show("tempThreeCombin [" + tempThreeCombin.mouth + "][" + tempThreeCombin.day + "][" + tempThreeCombin.year + "]: ");
                             MessageBox.Show("combinListFor3[" + i + "] [" + combinListFor3[i].mouth + "][" + combinListFor3[i].day + "][" + combinListFor3[i].year + "]: ");
                         }
