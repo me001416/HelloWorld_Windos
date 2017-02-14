@@ -244,10 +244,6 @@ namespace WindowsFormsApplication1
             Dictionary<int, int> index4Dic = new Dictionary<int, int>();
             Dictionary<int, int> index5Dic = new Dictionary<int, int>();
             Dictionary<int, int> index6Dic = new Dictionary<int, int>();
-            //List<int> index3List = new List<int>();
-            //List<int> index4List = new List<int>();
-            //List<int> index5List = new List<int>();
-            //List<int> index6List = new List<int>();
 
             foreach (var item in HitCombinDic)
             {
@@ -337,6 +333,58 @@ namespace WindowsFormsApplication1
             strList.Add("Once Four Combinations ["  + index4 + "]");
             strList.Add("Once Five Combinations ["  + index5 + "]");
             strList.Add("Once Six Combinations ["   + index6 + "]");
+
+            if (index3Dic.Count != 0)
+            {
+                int totalNum = 0;
+
+                foreach (var item in index3Dic)
+                {
+                    strList.Add("Three Combinations [" + item.Key + "] : ["+ item.Value + "]");
+                    totalNum = totalNum + item.Value;
+                }
+
+                strList.Add("Three Combinations % [" + (decimal)((decimal)totalNum / (decimal)index3) * 100 + "%]");
+            }
+
+            if (index4Dic.Count != 0)
+            {
+                int totalNum = 0;
+
+                foreach (var item in index4Dic)
+                {
+                    strList.Add("Four Combinations [" + item.Key + "] : [" + item.Value + "]");
+                    totalNum = totalNum + item.Value;
+                }
+
+                strList.Add("Four Combinations % [" + (decimal)((decimal)totalNum / (decimal)index4) * 100 + "%]");
+            }
+
+            if (index5Dic.Count != 0)
+            {
+                int totalNum = 0;
+
+                foreach (var item in index5Dic)
+                {
+                    strList.Add("Five Combinations [" + item.Key + "] : [" + item.Value + "]");
+                    totalNum = totalNum + item.Value;
+                }
+
+                strList.Add("Five Combinations % [" + (decimal)((decimal)totalNum / (decimal)index5) * 100 + "%]");
+            }
+
+            if (index6Dic.Count != 0)
+            {
+                int totalNum = 0;
+
+                foreach (var item in index6Dic)
+                {
+                    strList.Add("Six Combinations [" + item.Key + "] : [" + item.Value + "]");
+                    totalNum = totalNum + item.Value;
+                }
+
+                strList.Add("Six Combinations % [" + (decimal)((decimal)totalNum / (decimal)index6) * 100 + "%]");
+            }
         }
 
         public void RecordThreeCombinations(List<ThreeCombin> combinListFor3)
