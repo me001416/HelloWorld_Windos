@@ -216,8 +216,6 @@ namespace WindowsFormsApplication1
                 stringList.Add("\r");
             }
 
-            //MessageBox.Show("_ThreeCombin[0].numList.Count [" + _ThreeCombin[0].numList.Count + "]");
-
             RecordThreeCombinations(_ThreeCombin);
             RecordFourCombinations(_FourCombin);
             RecordFiveCombinations(_FiveCombin);
@@ -242,6 +240,14 @@ namespace WindowsFormsApplication1
             int index4 = 0;
             int index5 = 0;
             int index6 = 0;
+            Dictionary<int, int> index3Dic = new Dictionary<int, int>();
+            Dictionary<int, int> index4Dic = new Dictionary<int, int>();
+            Dictionary<int, int> index5Dic = new Dictionary<int, int>();
+            Dictionary<int, int> index6Dic = new Dictionary<int, int>();
+            //List<int> index3List = new List<int>();
+            //List<int> index4List = new List<int>();
+            //List<int> index5List = new List<int>();
+            //List<int> index6List = new List<int>();
 
             foreach (var item in HitCombinDic)
             {
@@ -251,15 +257,51 @@ namespace WindowsFormsApplication1
                     {
                         case 3:
                             strList.Add("Hit [" + item.Value[item.Value.Count -1].numList[0] + "] [" + item.Value[item.Value.Count-1].numList[1] + "] [" + item.Value[item.Value.Count-1].numList[2] + "], Hit count : [" + item.Value.Count + "]");
+
+                            if (index3Dic.ContainsKey(item.Value.Count))
+                            {
+                                index3Dic[item.Value.Count]++;
+                            }
+                            else
+                            {
+                                index3Dic.Add(item.Value.Count, 1);
+                            }
                             break;
                         case 4:
                             strList.Add("Hit [" + item.Value[item.Value.Count - 1].numList[0] + "] [" + item.Value[item.Value.Count - 1].numList[1] + "] [" + item.Value[item.Value.Count - 1].numList[2] + "] [" + item.Value[item.Value.Count - 1].numList[3] + "], Hit count : [" + item.Value.Count + "]");
+
+                            if (index4Dic.ContainsKey(item.Value.Count))
+                            {
+                                index4Dic[item.Value.Count]++;
+                            }
+                            else
+                            {
+                                index4Dic.Add(item.Value.Count, 1);
+                            }
                             break;
                         case 5:
-                            
+                            strList.Add("Hit [" + item.Value[item.Value.Count - 1].numList[0] + "] [" + item.Value[item.Value.Count - 1].numList[1] + "] [" + item.Value[item.Value.Count - 1].numList[2] + "] [" + item.Value[item.Value.Count - 1].numList[3] + "] [" + item.Value[item.Value.Count - 1].numList[4] + "], Hit count : [" + item.Value.Count + "]");
+
+                            if (index5Dic.ContainsKey(item.Value.Count))
+                            {
+                                index5Dic[item.Value.Count]++;
+                            }
+                            else
+                            {
+                                index5Dic.Add(item.Value.Count, 1);
+                            }
                             break;
                         case 6:
-                            
+                            strList.Add("Hit [" + item.Value[item.Value.Count - 1].numList[0] + "] [" + item.Value[item.Value.Count - 1].numList[1] + "] [" + item.Value[item.Value.Count - 1].numList[2] + "] [" + item.Value[item.Value.Count - 1].numList[3] + "] [" + item.Value[item.Value.Count - 1].numList[4] + "] [" + item.Value[item.Value.Count - 1].numList[5] + "], Hit count : [" + item.Value.Count + "]");
+
+                            if (index6Dic.ContainsKey(item.Value.Count))
+                            {
+                                index6Dic[item.Value.Count]++;
+                            }
+                            else
+                            {
+                                index6Dic.Add(item.Value.Count, 1);
+                            }
                             break;
                     }
 
