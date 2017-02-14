@@ -220,6 +220,8 @@ namespace WindowsFormsApplication1
 
             RecordThreeCombinations(_ThreeCombin);
             RecordFourCombinations(_FourCombin);
+            RecordFiveCombinations(_FiveCombin);
+            RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
 
             stringList.Add("Count = " + _PowerBall.Count);
@@ -236,16 +238,15 @@ namespace WindowsFormsApplication1
 
         public void ReportCombinations(List<string> strList)
         {
+            int index3 = 0;
+            int index4 = 0;
+            int index5 = 0;
+            int index6 = 0;
+
             foreach (var item in HitCombinDic)
             {
                 if (item.Key != 0)
                 {
-                    //MessageBox.Show("item.Value.numList.Count [" + item.Value[item.Value.Count - 1].numList.Count + "]");
-                    //if (item.Value[item.Value.Count - 1].numList.Count == 6)
-                    //{
-                    //    MessageBox.Show("item.Value.numList [" + item.Value[item.Value.Count - 1].numList[0] + "] [" + item.Value[item.Value.Count - 1].numList[1] + "][" + item.Value[item.Value.Count - 1].numList[2] + "][" + item.Value[item.Value.Count - 1].numList[3] + "][" + item.Value[item.Value.Count - 1].numList[4] + "][" + item.Value[item.Value.Count - 1].numList[5] + "]");
-                    //}
-
                     switch (item.Value[item.Value.Count - 1].numList.Count)
                     {
                         case 3:
@@ -269,9 +270,31 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-
+                    for (int i = 0; i < item.Value.Count; i++)
+                    {
+                        switch (item.Value[i].numList.Count)
+                        {
+                            case 3:
+                                index3++;
+                                break;
+                            case 4:
+                                index4++;
+                                break;
+                            case 5:
+                                index5++;
+                                break;
+                            case 6:
+                                index6++;
+                                break;
+                        }
+                    }
                 }
             }
+
+            strList.Add("Once Three Combinations [" + index3 + "]");
+            strList.Add("Once Four Combinations ["  + index4 + "]");
+            strList.Add("Once Five Combinations ["  + index5 + "]");
+            strList.Add("Once Six Combinations ["   + index6 + "]");
         }
 
         public void RecordThreeCombinations(List<ThreeCombin> combinListFor3)
@@ -350,8 +373,6 @@ namespace WindowsFormsApplication1
                                     combinListFor3[i].HitListID = hitID;
                                     tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
                                     tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
-
-                                    //MessageBox.Show("tempThreeCombin.zeroListID [" + tempThreeCombin.zeroListID + "]");
 
                                     HitCombinDic.Add(hitID, tempHitCobin);
                                     List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
@@ -446,7 +467,191 @@ namespace WindowsFormsApplication1
                                     tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
                                     tempHitCobin.Add(new HitCombinations(combinListFor4[i].numList, combinListFor4[i].count, combinListFor4[i].mouth, combinListFor4[i].day, combinListFor4[i].year));
 
-                                    //MessageBox.Show("tempThreeCombin.zeroListID [" + tempThreeCombin.zeroListID + "]");
+                                    HitCombinDic.Add(hitID, tempHitCobin);
+                                    List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
+                                    tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Something Wrong");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void RecordFiveCombinations(List<FiveCombin> combinListFor5)
+        {
+            FiveCombin tempThreeCombin;
+            string tempString;
+
+            if (combinListFor5.Count != 0)
+            {
+                for (int i = 0; i < combinListFor5.Count; i++)
+                {
+                    List<HitCombinations> tempHitCobin = new List<HitCombinations>();
+
+                    if (combinListFor5[i].numList.Count != 0)
+                    {
+                        tempString = combinListFor5[i].numList[0].ToString() + " " + combinListFor5[i].numList[1].ToString() + " " + combinListFor5[i].numList[2].ToString() + " " + combinListFor5[i].numList[3].ToString() + " " + combinListFor5[i].numList[4].ToString();
+
+                        if (!FiveCombinDic.ContainsKey(tempString))
+                        {
+                            //
+                            // First time find this combination
+                            //
+                            if (HitCombinDic.Count != 0)
+                            {
+                                tempHitCobin = HitCombinDic[0];
+                                tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
+                            }
+                            else
+                            {
+                                tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
+                                HitCombinDic.Add(0, tempHitCobin);
+                            }
+
+                            //
+                            // Record the location of list.
+                            //
+                            combinListFor5[i].zeroListID = tempHitCobin.Count - 1;
+
+                            //
+                            // Add combination to dictionary.
+                            //
+                            FiveCombinDic.Add(tempString, combinListFor5[i]);
+                        }
+                        else
+                        {
+                            int hitID = 1;
+
+                            if (HitCombinDic.Count != 0)
+                            {
+                                tempThreeCombin = FiveCombinDic[tempString];
+
+                                if (HitCombinDic.ContainsKey(1))
+                                {
+                                    if (tempThreeCombin.HitListID == 0)
+                                    {
+                                        tempThreeCombin.HitListID = HitCombinDic.Count;
+                                        combinListFor5[i].HitListID = HitCombinDic.Count;
+
+                                        List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
+                                        tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+
+                                        tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                        tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
+                                        HitCombinDic.Add(tempThreeCombin.HitListID, tempHitCobin);
+                                    }
+                                    else
+                                    {
+                                        tempHitCobin = HitCombinDic[tempThreeCombin.HitListID];
+                                        tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
+                                    }
+                                }
+                                else
+                                {
+
+                                    tempThreeCombin.HitListID = hitID;
+                                    combinListFor5[i].HitListID = hitID;
+                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
+
+                                    HitCombinDic.Add(hitID, tempHitCobin);
+                                    List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
+                                    tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Something Wrong");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void RecordSixCombinations(List<SixCombin> combinListFor6)
+        {
+            SixCombin tempThreeCombin;
+            string tempString;
+
+            if (combinListFor6.Count != 0)
+            {
+                for (int i = 0; i < combinListFor6.Count; i++)
+                {
+                    List<HitCombinations> tempHitCobin = new List<HitCombinations>();
+
+                    if (combinListFor6[i].numList.Count != 0)
+                    {
+                        tempString = combinListFor6[i].numList[0].ToString() + " " + combinListFor6[i].numList[1].ToString() + " " + combinListFor6[i].numList[2].ToString() + " " + combinListFor6[i].numList[3].ToString() + " " + combinListFor6[i].numList[4].ToString() + " " + combinListFor6[i].numList[5].ToString();
+
+                        if (!SixCombinDic.ContainsKey(tempString))
+                        {
+                            //
+                            // First time find this combination
+                            //
+                            if (HitCombinDic.Count != 0)
+                            {
+                                tempHitCobin = HitCombinDic[0];
+                                tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
+                            }
+                            else
+                            {
+                                tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
+                                HitCombinDic.Add(0, tempHitCobin);
+                            }
+
+                            //
+                            // Record the location of list.
+                            //
+                            combinListFor6[i].zeroListID = tempHitCobin.Count - 1;
+
+                            //
+                            // Add combination to dictionary.
+                            //
+                            SixCombinDic.Add(tempString, combinListFor6[i]);
+                        }
+                        else
+                        {
+                            int hitID = 1;
+
+                            if (HitCombinDic.Count != 0)
+                            {
+                                tempThreeCombin = SixCombinDic[tempString];
+
+                                if (HitCombinDic.ContainsKey(1))
+                                {
+                                    if (tempThreeCombin.HitListID == 0)
+                                    {
+                                        tempThreeCombin.HitListID = HitCombinDic.Count;
+                                        combinListFor6[i].HitListID = HitCombinDic.Count;
+
+                                        List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
+                                        tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+
+                                        tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                        tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
+                                        HitCombinDic.Add(tempThreeCombin.HitListID, tempHitCobin);
+                                    }
+                                    else
+                                    {
+                                        tempHitCobin = HitCombinDic[tempThreeCombin.HitListID];
+                                        tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
+                                    }
+                                }
+                                else
+                                {
+
+                                    tempThreeCombin.HitListID = hitID;
+                                    combinListFor6[i].HitListID = hitID;
+                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
 
                                     HitCombinDic.Add(hitID, tempHitCobin);
                                     List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
