@@ -341,10 +341,10 @@ namespace WindowsFormsApplication1
                 foreach (var item in index3Dic)
                 {
                     strList.Add("Three Combinations [" + item.Key + "] : ["+ item.Value + "]");
-                    totalNum = totalNum + item.Value;
+                    totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Three Combinations % [" + (decimal)((decimal)totalNum / (decimal)index3) * 100 + "%]");
+                strList.Add("Three Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index3 + totalNum)) * 100 + "%]");
             }
 
             if (index4Dic.Count != 0)
@@ -354,10 +354,10 @@ namespace WindowsFormsApplication1
                 foreach (var item in index4Dic)
                 {
                     strList.Add("Four Combinations [" + item.Key + "] : [" + item.Value + "]");
-                    totalNum = totalNum + item.Value;
+                    totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Four Combinations % [" + (decimal)((decimal)totalNum / (decimal)index4) * 100 + "%]");
+                strList.Add("Four Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index4 + totalNum)) * 100 + "%]");
             }
 
             if (index5Dic.Count != 0)
@@ -367,10 +367,10 @@ namespace WindowsFormsApplication1
                 foreach (var item in index5Dic)
                 {
                     strList.Add("Five Combinations [" + item.Key + "] : [" + item.Value + "]");
-                    totalNum = totalNum + item.Value;
+                    totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Five Combinations % [" + (decimal)((decimal)totalNum / (decimal)index5) * 100 + "%]");
+                strList.Add("Five Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index5 + totalNum)) * 100 + "%]");
             }
 
             if (index6Dic.Count != 0)
@@ -380,10 +380,10 @@ namespace WindowsFormsApplication1
                 foreach (var item in index6Dic)
                 {
                     strList.Add("Six Combinations [" + item.Key + "] : [" + item.Value + "]");
-                    totalNum = totalNum + item.Value;
+                    totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Six Combinations % [" + (decimal)((decimal)totalNum / (decimal)index6) * 100 + "%]");
+                strList.Add("Six Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index6 + totalNum)) * 100 + "%]");
             }
         }
 
