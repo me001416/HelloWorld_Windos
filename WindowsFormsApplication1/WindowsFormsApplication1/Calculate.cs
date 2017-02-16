@@ -15,6 +15,7 @@ namespace WindowsFormsApplication1
         List<FourCombin> _FourCombin = new List<FourCombin>();
         List<FiveCombin> _FiveCombin = new List<FiveCombin>();
         List<SixCombin> _SixCombin = new List<SixCombin>();
+        int eachNumberCount;
 
         public void Report(List<PowerBall> _PowerBall)
         {
@@ -22,7 +23,6 @@ namespace WindowsFormsApplication1
             int[] _NumArray = new int[7];
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
             List<string> stringList = new List<string>();
-            int eachNumberCount = 0;
 
             calculateEachNum(_PowerBall, array);
             calculateCombinations(_PowerBall);
@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
                         _ThreeCombin[i].NumToLIst(true);
                     }
 
-                    ReportAllCombinations(_ThreeCombin[i].numList, stringList, _ThreeCombin[i].count, eachNumberCount);
+                    ReportAllCombinations(_ThreeCombin[i].numList, stringList, _ThreeCombin[i].count);
                 }
             }
 
@@ -53,7 +53,7 @@ namespace WindowsFormsApplication1
                         _FourCombin[i].NumToLIst(true);
                     }
 
-                    ReportAllCombinations(_FourCombin[i].numList, stringList, _FourCombin[i].count, eachNumberCount);
+                    ReportAllCombinations(_FourCombin[i].numList, stringList, _FourCombin[i].count);
                 }
             }
 
@@ -68,7 +68,7 @@ namespace WindowsFormsApplication1
                         _FiveCombin[i].NumToLIst(true);
                     }
 
-                    ReportAllCombinations(_FiveCombin[i].numList, stringList, _FiveCombin[i].count, eachNumberCount);
+                    ReportAllCombinations(_FiveCombin[i].numList, stringList, _FiveCombin[i].count);
                 }
             }
 
@@ -83,7 +83,7 @@ namespace WindowsFormsApplication1
                         _SixCombin[i].NumToLIst(true);
                     }
 
-                    ReportAllCombinations(_SixCombin[i].numList, stringList, _SixCombin[i].count, eachNumberCount);
+                    ReportAllCombinations(_SixCombin[i].numList, stringList, _SixCombin[i].count);
                 }
             }
 
@@ -105,37 +105,40 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
-        public void ReportAllCombinations(List<int> numList, List<string> strList, int index, int count)
+        public void ReportAllCombinations(List<int> numList, List<string> strList, int index)
         {
-            Boolean ShowAllMessage = true;
+            Boolean ShowAllMessage = false;
 
             if (index == 0)
             {
-                count++;
+                //MessageBox.Show("count [" + eachNumberCount + "]");
+                eachNumberCount++;
             }
             else
             {
                 if (index == 1)
                 {
-                    if (count !=0)
+                    if (eachNumberCount != 0)
                     {
+                        //MessageBox.Show("numList.Count [" + numList.Count + "]");
+
                         switch (numList.Count)
                         {
                             case 3:
-                                strList.Add("Each Three Combinations =" + count);
+                                strList.Add("Each Three Combinations =" + eachNumberCount);
                                 break;
                             case 4:
-                                strList.Add("Each Four Combinations =" + count);
+                                strList.Add("Each Four Combinations =" + eachNumberCount);
                                 break;
                             case 5:
-                                strList.Add("Each Five Combinations =" + count);
+                                strList.Add("Each Five Combinations =" + eachNumberCount);
                                 break;
                             case 6:
-                                strList.Add("Each Six Combinations =" + count);
+                                strList.Add("Each Six Combinations =" + eachNumberCount);
                                 break;
                         }
-                        
-                        count = 0;
+
+                        eachNumberCount = 0;
                     }
                 }
             }
@@ -145,13 +148,13 @@ namespace WindowsFormsApplication1
                 switch (numList.Count)
                 {
                     case 3:
-                        //strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "], count = " + index);
+                        strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "], count = " + index);
                         break;
                     case 4:
-                        //strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "], count = " + index);
+                        strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "], count = " + index);
                         break;
                     case 5:
-                        //strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "][" + numList[4] + "], count = " + index);
+                        strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "][" + numList[4] + "], count = " + index);
                         break;
                     case 6:
                         strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "][" + numList[4] + "][" + numList[5] + "], count = " + index);
