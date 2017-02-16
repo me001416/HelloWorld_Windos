@@ -11,60 +11,22 @@ namespace WindowsFormsApplication1
         Dictionary<string, FiveCombin> FiveCombinDic = new Dictionary<string, FiveCombin>();
         Dictionary<string, SixCombin> SixCombinDic = new Dictionary<string, SixCombin>();
         Dictionary<int, List<HitCombinations>> HitCombinDic = new Dictionary<int, List<HitCombinations>>();
+        List<ThreeCombin> _ThreeCombin = new List<ThreeCombin>();
+        List<FourCombin> _FourCombin = new List<FourCombin>();
+        List<FiveCombin> _FiveCombin = new List<FiveCombin>();
+        List<SixCombin> _SixCombin = new List<SixCombin>();
 
         public void Report(List<PowerBall> _PowerBall)
         {
             int[] array = new int[50];
             int[] _NumArray = new int[7];
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
-            List<ThreeCombin> _ThreeCombin = new List<ThreeCombin>();
-            List<FourCombin> _FourCombin = new List<FourCombin>();
-            List<FiveCombin> _FiveCombin = new List<FiveCombin>();
-            List<SixCombin> _SixCombin = new List<SixCombin>();
             List<string> stringList = new List<string>();
             int index3 = 0;
             Boolean ShowMessage = false;
 
             calculateEachNum(_PowerBall, array);
-
-            if (_PowerBall.Count != 0)
-            {
-                for (int i = 0; i < _PowerBall.Count; i++)
-                {
-                    Combinations combin = new Combinations();
-                    List<List<int>> numList = new List<List<int>>();
-                    
-                    _PowerBall[i].UpdateList(false);
-                    _PowerBall[i].numList.Sort();
-
-                    for (int k = 3; k < 7 ; k++ )
-                    {
-                        numList = combin.NewCombine(_PowerBall[i].numList, k);
-
-                        if (numList.Count != 0)
-                        {
-                            for (int j = 0; j < numList.Count; j++)
-                            {
-                                switch (k)
-                                {
-                                    case 3:
-                                        _ThreeCombin.Add(new ThreeCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
-                                        break;
-                                    case 4:
-                                        _FourCombin.Add(new FourCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
-                                        break;
-                                    case 5:
-                                        _FiveCombin.Add(new FiveCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
-                                        break;
-                                    case 6:
-                                        _SixCombin.Add(new SixCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
-                                        break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            calculateCombinations(_PowerBall);
 
             if (_ThreeCombin.Count != 0)
             {
@@ -228,23 +190,6 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
-        public void calculateEachNum(List<PowerBall> pB, int[] array)
-        {
-            if (pB.Count != 0)
-            {
-                for (int i = 0; i < pB.Count; i++)
-                {
-                    array[pB[i].num1.num]++;
-                    array[pB[i].num2.num]++;
-                    array[pB[i].num3.num]++;
-                    array[pB[i].num4.num]++;
-                    array[pB[i].num5.num]++;
-                    array[pB[i].num6.num]++;
-                    array[pB[i].num7.num]++;
-                }
-            }
-        }
-
         public void ReportCombinations(List<string> strList)
         {
             int index3 = 0;
@@ -395,6 +340,65 @@ namespace WindowsFormsApplication1
                 }
 
                 strList.Add("Six Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index6 + totalNum)) * 100 + "%]");
+            }
+        }
+
+        public void calculateEachNum(List<PowerBall> pB, int[] array)
+        {
+            if (pB.Count != 0)
+            {
+                for (int i = 0; i < pB.Count; i++)
+                {
+                    array[pB[i].num1.num]++;
+                    array[pB[i].num2.num]++;
+                    array[pB[i].num3.num]++;
+                    array[pB[i].num4.num]++;
+                    array[pB[i].num5.num]++;
+                    array[pB[i].num6.num]++;
+                    array[pB[i].num7.num]++;
+                }
+            }
+        }
+
+        public void calculateCombinations(List<PowerBall> _PowerBall)
+        {
+            if (_PowerBall.Count != 0)
+            {
+                for (int i = 0; i < _PowerBall.Count; i++)
+                {
+                    Combinations combin = new Combinations();
+                    List<List<int>> numList = new List<List<int>>();
+                    
+                    _PowerBall[i].UpdateList(false);
+                    _PowerBall[i].numList.Sort();
+
+                    for (int k = 3; k < 7 ; k++ )
+                    {
+                        numList = combin.NewCombine(_PowerBall[i].numList, k);
+
+                        if (numList.Count != 0)
+                        {
+                            for (int j = 0; j < numList.Count; j++)
+                            {
+                                switch (k)
+                                {
+                                    case 3:
+                                        _ThreeCombin.Add(new ThreeCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                                        break;
+                                    case 4:
+                                        _FourCombin.Add(new FourCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                                        break;
+                                    case 5:
+                                        _FiveCombin.Add(new FiveCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                                        break;
+                                    case 6:
+                                        _SixCombin.Add(new SixCombin(numList[j], i, _PowerBall[i].mouth, _PowerBall[i].day, _PowerBall[i].year));
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
