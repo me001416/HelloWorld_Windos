@@ -75,10 +75,6 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //if (pbList.Count != 0)
-            //{
-            //    pbList[pbList.Count - 1].ShowData();
-            //}
             HitCounter _HitCounter = new HitCounter();
 
             _HitCounter.Report(pbList);
@@ -92,7 +88,20 @@ namespace WindowsFormsApplication1
             {
                 for (int i = 0; i < pbList.Count; i++)
                 {
-                    fileOwner.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString(), pbList[i].mouth.ToString(), pbList[i].day.ToString(), pbList[i].year.ToString());
+                    List<string> stringList = new List<string>();
+
+                    stringList.Add(pbList[i].num1.NumToString());
+                    stringList.Add(pbList[i].num2.NumToString());
+                    stringList.Add(pbList[i].num3.NumToString());
+                    stringList.Add(pbList[i].num4.NumToString());
+                    stringList.Add(pbList[i].num5.NumToString());
+                    stringList.Add(pbList[i].num6.NumToString());
+                    stringList.Add(pbList[i].num7.NumToString());
+                    stringList.Add(pbList[i].mouth.ToString());
+                    stringList.Add(pbList[i].day.ToString());
+                    stringList.Add(pbList[i].year.ToString());
+                    fileOwner.WriteNum(stringList);
+                    //fileOwner.WriteNum(pbList[i].num1.NumToString(), pbList[i].num2.NumToString(), pbList[i].num3.NumToString(), pbList[i].num4.NumToString(), pbList[i].num5.NumToString(), pbList[i].num6.NumToString(), pbList[i].num7.NumToString(), pbList[i].mouth.ToString(), pbList[i].day.ToString(), pbList[i].year.ToString());
                 }
 
                 fileOwner.StopWrite();

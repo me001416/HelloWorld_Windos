@@ -19,7 +19,6 @@ namespace WindowsFormsApplication1
         {
             String _fileName;
 
-            //if (FileName == null || !FileOrDirectoryExists(FileName))
             if (FileName == null)
             {
                 if (Active)
@@ -46,33 +45,20 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void WriteNum(string str1, string str2, string str3, string str4, string str5, string str6, string str7, string mouth, string day, string year)
+        public void WriteNum(List<string> stringList)
         {
             if (sWriter == null)
             {
                 MessageBox.Show("Open sw Error");
             }
 
-            sWriter.Write(str1);
-            sWriter.Write(',');
-            sWriter.Write(str2);
-            sWriter.Write(',');
-            sWriter.Write(str3);
-            sWriter.Write(',');
-            sWriter.Write(str4);
-            sWriter.Write(',');
-            sWriter.Write(str5);
-            sWriter.Write(',');
-            sWriter.Write(str6);
-            sWriter.Write(',');
-            sWriter.Write(str7);
-            sWriter.Write(',');
-            sWriter.Write(mouth);
-            sWriter.Write(',');
-            sWriter.Write(day);
-            sWriter.Write(',');
-            sWriter.Write(year);
-            sWriter.WriteLine(',');
+            foreach (var item in stringList)
+            {
+                sWriter.Write(item);
+                sWriter.Write(',');
+            }
+
+            sWriter.WriteLine(' ');
         }
 
         public void WriteReport(List<string> str, int count)
@@ -103,7 +89,6 @@ namespace WindowsFormsApplication1
             Boolean refresh = true;
             Char[] chars = new Char[40];
 
-            //PowerBall _nPowerBall;
             List<PowerBall> _PowerBall = new List<PowerBall>();
 
             while (!sReader.EndOfStream)
@@ -117,7 +102,6 @@ namespace WindowsFormsApplication1
                 // Initialize variable on while loop.
                 //
                 PowerBall _nPowerBall = new PowerBall();
-                //_nPowerBall = null;
                 j = 0;
                 index0 = 0;
                 refresh = true;

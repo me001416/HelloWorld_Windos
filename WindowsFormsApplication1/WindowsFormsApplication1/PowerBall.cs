@@ -89,11 +89,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        //public PowerBall(int xx)
-        //{
-        //    this.num1.num = xx;
-        //}
-
         //
         // return a string.
         //
@@ -167,11 +162,6 @@ namespace WindowsFormsApplication1
                 }
             }
         }
-
-        //public PowerBallNumber(int x)
-        //{
-        //    num = x;
-        //}
 
         //
         // Is Special Number or not.
