@@ -25,22 +25,16 @@ namespace WindowsFormsApplication1
             int index3 = 0;
             Boolean ShowMessage = false;
 
+            calculateEachNum(_PowerBall, array);
+
             if (_PowerBall.Count != 0)
             {
                 for (int i = 0; i < _PowerBall.Count; i++)
                 {
-                    array[_PowerBall[i].num1.num]++;
-                    array[_PowerBall[i].num2.num]++;
-                    array[_PowerBall[i].num3.num]++;
-                    array[_PowerBall[i].num4.num]++;
-                    array[_PowerBall[i].num5.num]++;
-                    array[_PowerBall[i].num6.num]++;
-                    array[_PowerBall[i].num7.num]++;
-
                     Combinations combin = new Combinations();
                     List<List<int>> numList = new List<List<int>>();
                     
-                    _PowerBall[i].UpdateList();
+                    _PowerBall[i].UpdateList(false);
                     _PowerBall[i].numList.Sort();
 
                     for (int k = 3; k < 7 ; k++ )
@@ -232,6 +226,23 @@ namespace WindowsFormsApplication1
             fileOwner.WriteReport(stringList, stringList.Count);
 
             fileOwner.StopWrite();
+        }
+
+        public void calculateEachNum(List<PowerBall> pB, int[] array)
+        {
+            if (pB.Count != 0)
+            {
+                for (int i = 0; i < pB.Count; i++)
+                {
+                    array[pB[i].num1.num]++;
+                    array[pB[i].num2.num]++;
+                    array[pB[i].num3.num]++;
+                    array[pB[i].num4.num]++;
+                    array[pB[i].num5.num]++;
+                    array[pB[i].num6.num]++;
+                    array[pB[i].num7.num]++;
+                }
+            }
         }
 
         public void ReportCombinations(List<string> strList)

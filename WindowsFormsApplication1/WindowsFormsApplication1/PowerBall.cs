@@ -125,15 +125,27 @@ namespace WindowsFormsApplication1
             MessageBox.Show("Num1 : " + num1.num + " ; " + "Num2 : " + num2.num + " ; " + "Num3 : " + num3.num + " ; " + "Num4 : " + num4.num + " ; " + "Num5 : " + num5.num + " ; " + "Num6 : " + num6.num + " ; " + "Num7 : " + num7.num);
         }
 
-        public void UpdateList()
+        public void UpdateList(Boolean Active)
         {
-            numList.Add(num1.num);
-            numList.Add(num2.num);
-            numList.Add(num3.num);
-            numList.Add(num4.num);
-            numList.Add(num5.num);
-            numList.Add(num6.num);
-            numList.Add(num7.num);
+            if (Active)
+            {
+                numList.Add(num1.num);
+                numList.Add(num2.num);
+                numList.Add(num3.num);
+                numList.Add(num4.num);
+                numList.Add(num5.num);
+                numList.Add(num6.num);
+            }
+            else
+            {
+                numList.Add(num1.num);
+                numList.Add(num2.num);
+                numList.Add(num3.num);
+                numList.Add(num4.num);
+                numList.Add(num5.num);
+                numList.Add(num6.num);
+                numList.Add(num7.num);
+            }
         }
     }
 
