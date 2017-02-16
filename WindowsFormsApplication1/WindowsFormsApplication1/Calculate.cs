@@ -22,15 +22,14 @@ namespace WindowsFormsApplication1
             int[] _NumArray = new int[7];
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
             List<string> stringList = new List<string>();
-            int index3 = 0;
-            Boolean ShowMessage = false;
+            int eachNumberCount = 0;
 
             calculateEachNum(_PowerBall, array);
             calculateCombinations(_PowerBall);
 
             if (_ThreeCombin.Count != 0)
             {
-                index3 = 0;
+                eachNumberCount = 0;
 
                 for (int i = 0; i < _ThreeCombin.Count; i++)
                 {
@@ -39,34 +38,13 @@ namespace WindowsFormsApplication1
                         _ThreeCombin[i].NumToLIst(true);
                     }
 
-                    if (_ThreeCombin[i].count == 0)
-                    {
-                        index3++;
-                    }
-                    else
-                    {
-                        if (_ThreeCombin[i].count == 1)
-                        {
-                            if (index3 !=0)
-                            {
-                                stringList.Add("index3 =" + index3);
-                                index3 = 0;
-                            }
-                        }
-                    }
-
-                    if (ShowMessage)
-                    {
-                        stringList.Add("Number Combination [" + _ThreeCombin[i].num1 + "][" + _ThreeCombin[i].num2 + "][" + _ThreeCombin[i].num3 + "], count = " + _ThreeCombin[i].count);
-                    }
+                    ReportAllCombinations(_ThreeCombin[i].numList, stringList, _ThreeCombin[i].count, eachNumberCount);
                 }
-
-                stringList.Add("\r");
             }
 
             if (_FourCombin.Count != 0)
             {
-                index3 = 0;
+                eachNumberCount = 0;
 
                 for (int i = 0; i < _FourCombin.Count; i++)
                 {
@@ -75,34 +53,13 @@ namespace WindowsFormsApplication1
                         _FourCombin[i].NumToLIst(true);
                     }
 
-                    if (_FourCombin[i].count == 0)
-                    {
-                        index3++;
-                    }
-                    else
-                    {
-                        if (_FourCombin[i].count == 1)
-                        {
-                            if (index3 != 0)
-                            {
-                                stringList.Add("index3 =" + index3);
-                                index3 = 0;
-                            }
-                        }
-                    }
-
-                    if (ShowMessage)
-                    {
-                        stringList.Add("Number Combination [" + _FourCombin[i].num1 + "][" + _FourCombin[i].num2 + "][" + _FourCombin[i].num3 + "][" + _FourCombin[i].num4 + "], count = " + _FourCombin[i].count);
-                    }
+                    ReportAllCombinations(_FourCombin[i].numList, stringList, _FourCombin[i].count, eachNumberCount);
                 }
-
-                stringList.Add("\r");
             }
 
             if (_FiveCombin.Count != 0)
             {
-                index3 = 0;
+                eachNumberCount = 0;
 
                 for (int i = 0; i < _FiveCombin.Count; i++)
                 {
@@ -111,34 +68,13 @@ namespace WindowsFormsApplication1
                         _FiveCombin[i].NumToLIst(true);
                     }
 
-                    if (_FiveCombin[i].count == 0)
-                    {
-                        index3++;
-                    }
-                    else
-                    {
-                        if (_FiveCombin[i].count == 1)
-                        {
-                            if (index3 != 0)
-                            {
-                                stringList.Add("index3 =" + index3);
-                                index3 = 0;
-                            }
-                        }
-                    }
-
-                    if (ShowMessage)
-                    {
-                        stringList.Add("Number Combination [" + _FiveCombin[i].num1 + "][" + _FiveCombin[i].num2 + "][" + _FiveCombin[i].num3 + "][" + _FiveCombin[i].num4 + "][" + _FiveCombin[i].num5 + "], count = " + _FiveCombin[i].count);
-                    }
+                    ReportAllCombinations(_FiveCombin[i].numList, stringList, _FiveCombin[i].count, eachNumberCount);
                 }
-
-                stringList.Add("\r");
             }
 
             if (_SixCombin.Count != 0)
             {
-                index3 = 0;
+                eachNumberCount = 0;
 
                 for (int i = 0; i < _SixCombin.Count; i++)
                 {
@@ -147,29 +83,8 @@ namespace WindowsFormsApplication1
                         _SixCombin[i].NumToLIst(true);
                     }
 
-                    if (_SixCombin[i].count == 0)
-                    {
-                        index3++;
-                    }
-                    else
-                    {
-                        if (_SixCombin[i].count == 1)
-                        {
-                            if (index3 != 0)
-                            {
-                                stringList.Add("index3 =" + index3);
-                                index3 = 0;
-                            }
-                        }
-                    }
-
-                    if (ShowMessage)
-                    {
-                        stringList.Add("Number Combination [" + _SixCombin[i].num1 + "][" + _SixCombin[i].num2 + "][" + _SixCombin[i].num3 + "][" + _SixCombin[i].num4 + "][" + _SixCombin[i].num5 + "][" + _SixCombin[i].num6 + "], count = " + _SixCombin[i].count);
-                    }
+                    ReportAllCombinations(_SixCombin[i].numList, stringList, _SixCombin[i].count, eachNumberCount);
                 }
-                
-                stringList.Add("\r");
             }
 
             RecordThreeCombinations(_ThreeCombin);
@@ -190,12 +105,67 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
+        public void ReportAllCombinations(List<int> numList, List<string> strList, int index, int count)
+        {
+            Boolean ShowAllMessage = true;
+
+            if (index == 0)
+            {
+                count++;
+            }
+            else
+            {
+                if (index == 1)
+                {
+                    if (count !=0)
+                    {
+                        switch (numList.Count)
+                        {
+                            case 3:
+                                strList.Add("Each Three Combinations =" + count);
+                                break;
+                            case 4:
+                                strList.Add("Each Four Combinations =" + count);
+                                break;
+                            case 5:
+                                strList.Add("Each Five Combinations =" + count);
+                                break;
+                            case 6:
+                                strList.Add("Each Six Combinations =" + count);
+                                break;
+                        }
+                        
+                        count = 0;
+                    }
+                }
+            }
+
+            if (ShowAllMessage)
+            {
+                switch (numList.Count)
+                {
+                    case 3:
+                        //strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "], count = " + index);
+                        break;
+                    case 4:
+                        //strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "], count = " + index);
+                        break;
+                    case 5:
+                        //strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "][" + numList[4] + "], count = " + index);
+                        break;
+                    case 6:
+                        strList.Add("Number Combination [" + numList[0] + "][" + numList[1] + "][" + numList[2] + "][" + numList[3] + "][" + numList[4] + "][" + numList[5] + "], count = " + index);
+                        break;
+                }
+            }
+        }
+
         public void ReportCombinations(List<string> strList)
         {
-            int index3 = 0;
-            int index4 = 0;
-            int index5 = 0;
-            int index6 = 0;
+            int combinIndex3 = 0;
+            int combinIndex4 = 0;
+            int combinIndex5 = 0;
+            int combinIndex6 = 0;
             Dictionary<int, int> index3Dic = new Dictionary<int, int>();
             Dictionary<int, int> index4Dic = new Dictionary<int, int>();
             Dictionary<int, int> index5Dic = new Dictionary<int, int>();
@@ -269,26 +239,26 @@ namespace WindowsFormsApplication1
                         switch (item.Value[i].numList.Count)
                         {
                             case 3:
-                                index3++;
+                                combinIndex3++;
                                 break;
                             case 4:
-                                index4++;
+                                combinIndex4++;
                                 break;
                             case 5:
-                                index5++;
+                                combinIndex5++;
                                 break;
                             case 6:
-                                index6++;
+                                combinIndex6++;
                                 break;
                         }
                     }
                 }
             }
 
-            strList.Add("Once Three Combinations [" + index3 + "]");
-            strList.Add("Once Four Combinations ["  + index4 + "]");
-            strList.Add("Once Five Combinations ["  + index5 + "]");
-            strList.Add("Once Six Combinations ["   + index6 + "]");
+            strList.Add("Once Three Combinations [" + combinIndex3 + "]");
+            strList.Add("Once Four Combinations ["  + combinIndex4 + "]");
+            strList.Add("Once Five Combinations ["  + combinIndex5 + "]");
+            strList.Add("Once Six Combinations ["   + combinIndex6 + "]");
 
             if (index3Dic.Count != 0)
             {
@@ -300,7 +270,7 @@ namespace WindowsFormsApplication1
                     totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Three Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index3 + totalNum)) * 100 + "%]");
+                strList.Add("Three Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(combinIndex3 + totalNum)) * 100 + "%]");
             }
 
             if (index4Dic.Count != 0)
@@ -313,7 +283,7 @@ namespace WindowsFormsApplication1
                     totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Four Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index4 + totalNum)) * 100 + "%]");
+                strList.Add("Four Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(combinIndex4 + totalNum)) * 100 + "%]");
             }
 
             if (index5Dic.Count != 0)
@@ -326,7 +296,7 @@ namespace WindowsFormsApplication1
                     totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Five Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index5 + totalNum)) * 100 + "%]");
+                strList.Add("Five Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(combinIndex5 + totalNum)) * 100 + "%]");
             }
 
             if (index6Dic.Count != 0)
@@ -339,7 +309,7 @@ namespace WindowsFormsApplication1
                     totalNum = totalNum + (item.Value * item.Key);
                 }
 
-                strList.Add("Six Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(index6 + totalNum)) * 100 + "%]");
+                strList.Add("Six Combinations % : [" + (decimal)((decimal)totalNum / (decimal)(combinIndex6 + totalNum)) * 100 + "%]");
             }
         }
 
