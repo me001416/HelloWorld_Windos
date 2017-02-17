@@ -92,6 +92,7 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
+            calculateAllCombinations();
 
             stringList.Add("Count = " + _PowerBall.Count);
 
@@ -105,13 +106,53 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
+        public void calculateAllCombinations()
+        {
+            List<int> allNumber = new List<int>();
+            List<List<int>> numList = new List<List<int>>();
+            List<int> tempNumList = new List<int>();
+            Combinations combin = new Combinations();
+            string tempString;
+            int k = 3;
+            int tempData = 0;
+
+            for (int i = 1; i <= 49; i++)
+            {
+                allNumber.Add(i);
+            }
+
+            numList = combin.NewCombine(allNumber, k);
+
+            tempData = numList.Count;
+
+            for (int i = 0 ; i < numList.Count ; i++)
+            {
+                tempNumList = numList[i];
+                //MessageBox.Show("item : [" + item[0] + "][" + item[1] + "][" + item[2] + "]");
+                tempString = tempNumList[0].ToString() + " " + tempNumList[1].ToString() + " " + tempNumList[2].ToString();
+
+                if (ThreeCombinDic.ContainsKey(tempString))
+                {
+                    numList.RemoveAt(i);
+                    i--;
+                }
+            }
+
+            //tempNumList = numList[1];
+            tempData = tempData - numList.Count;
+            MessageBox.Show("tempData : [" + tempData + "]");
+
+            //MessageBox.Show("numList.Count : [" + tempNumList.Count + "]");
+            //MessageBox.Show("tempNumList : [" + tempNumList[0] + "][" + tempNumList[1] + "][" + tempNumList[2] + "]");
+            //MessageBox.Show("numList.Count : [" + numList.Count + "]");
+        }
+
         public void ReportAllCombinations(List<int> numList, List<string> strList, int index)
         {
             Boolean ShowAllMessage = false;
 
             if (index == 0)
             {
-                //MessageBox.Show("count [" + eachNumberCount + "]");
                 eachNumberCount++;
             }
             else
@@ -120,8 +161,6 @@ namespace WindowsFormsApplication1
                 {
                     if (eachNumberCount != 0)
                     {
-                        //MessageBox.Show("numList.Count [" + numList.Count + "]");
-
                         switch (numList.Count)
                         {
                             case 3:
