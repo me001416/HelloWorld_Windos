@@ -92,7 +92,6 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
-            CalculateAllCombinations();
 
             stringList.Add("Count = " + _PowerBall.Count);
 
@@ -136,14 +135,19 @@ namespace WindowsFormsApplication1
 
                 tempNumList.Sort();
 
-                if (tempNumList.Count == 6)
+                if (tempNumList.Count != 6)
                 {
-                    MessageBox.Show("tempNumList : [" + tempNumList[0] + "][" + tempNumList[1] + "][" + tempNumList[2] + "][" + tempNumList[3] + "][" + tempNumList[4] + "][" + tempNumList[5] + "]");
+                    MessageBox.Show("HitCounter.GetRandomNumberList() Wrong");
                 }
-                else
-                {
-                    MessageBox.Show("numList.Count : [" + tempNumList.Count + "]");
-                }
+                //{
+                //    MessageBox.Show("tempNumList : [" + tempNumList[0] + "][" + tempNumList[1] + "][" + tempNumList[2] + "][" + tempNumList[3] + "][" + tempNumList[4] + "][" + tempNumList[5] + "]");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("numList.Count : [" + tempNumList.Count + "]");
+                //}
+
+                NumList.Add(tempNumList);
             }
         }
 
@@ -539,7 +543,7 @@ namespace WindowsFormsApplication1
                             }
                             else
                             {
-                                MessageBox.Show("Something Wrong");
+                                MessageBox.Show("HitCounter.RecordThreeCombinations() Wrong");
                                 return;
                             }
                         }
@@ -632,7 +636,7 @@ namespace WindowsFormsApplication1
                             }
                             else
                             {
-                                MessageBox.Show("Something Wrong");
+                                MessageBox.Show("HitCounter.RecordFourCombinations() Wrong");
                                 return;
                             }
                         }
@@ -725,7 +729,7 @@ namespace WindowsFormsApplication1
                             }
                             else
                             {
-                                MessageBox.Show("Something Wrong");
+                                MessageBox.Show("HitCounter.RecordFiveCombinations() Wrong");
                                 return;
                             }
                         }
@@ -818,7 +822,7 @@ namespace WindowsFormsApplication1
                             }
                             else
                             {
-                                MessageBox.Show("Something Wrong");
+                                MessageBox.Show("HitCounter.RecordSixCombinations() Wrong");
                                 return;
                             }
                         }

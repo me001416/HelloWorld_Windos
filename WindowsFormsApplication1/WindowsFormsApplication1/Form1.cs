@@ -76,9 +76,7 @@ namespace WindowsFormsApplication1
         private void button4_Click(object sender, EventArgs e)
         {
             HitCounter _HitCounter = new HitCounter();
-            List<List<int>> NumList = new List<List<int>>();
 
-            _HitCounter.GetRandomNumberList(NumList,3);
             _HitCounter.Report(pbList);
         }
 
