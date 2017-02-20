@@ -110,11 +110,115 @@ namespace WindowsFormsApplication1
             List<List<int>> threeNumList = new List<List<int>>();
             List<List<int>> fourNumList = new List<List<int>>();
             List<List<int>> fiveNumList = new List<List<int>>();
+            List<int> tempList = new List<int>();
+            string tempStr;
             Combinations combin = new Combinations();
 
             threeNumList = combin.NewCombine(NumList, 3);
             fourNumList = combin.NewCombine(NumList, 4);
             fiveNumList = combin.NewCombine(NumList, 5);
+
+            //
+            // For Combinations of 3.
+            //
+            for (int i = 0; i < threeNumList.Count; i++)
+            {
+                tempList = threeNumList[i];
+                tempStr = tempList[0].ToString() + " " + tempList[1].ToString() + " " + tempList[2].ToString();
+
+                if (ThreeCombinDic.ContainsKey(tempStr))
+                {
+                    foreach (var item in HitCombinDic)
+                    {
+                        if (item.Key != 0)
+                        {
+                            if (item.Value[item.Value.Count - 1].numList.Count == 3)
+                            {
+                                if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2])
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //
+            // For Combinations of 4.
+            //
+            for (int i = 0; i < fourNumList.Count; i++)
+            {
+                tempList = fourNumList[i];
+                tempStr = tempList[0].ToString() + " " + tempList[1].ToString() + " " + tempList[2].ToString() + " " + tempList[3].ToString();
+
+                if (FourCombinDic.ContainsKey(tempStr))
+                {
+                    foreach (var item in HitCombinDic)
+                    {
+                        if (item.Key != 0)
+                        {
+                            if (item.Value[item.Value.Count - 1].numList.Count == 4)
+                            {
+                                if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3])
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //
+            // For Combinations of 5.
+            //
+            for (int i = 0; i < fiveNumList.Count; i++)
+            {
+                tempList = fiveNumList[i];
+                tempStr = tempList[0].ToString() + " " + tempList[1].ToString() + " " + tempList[2].ToString() + " " + tempList[3].ToString() + " " + tempList[4].ToString();
+
+                if (FiveCombinDic.ContainsKey(tempStr))
+                {
+                    foreach (var item in HitCombinDic)
+                    {
+                        if (item.Key != 0)
+                        {
+                            if (item.Value[item.Value.Count - 1].numList.Count == 5)
+                            {
+                                if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3] && item.Value[item.Value.Count - 1].numList[4] == tempList[4])
+                                {
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            //
+            // For Combinations of 6.
+            //
+            tempList = NumList;
+
+            tempStr = tempList[0].ToString() + " " + tempList[1].ToString() + " " + tempList[2].ToString() + " " + tempList[3].ToString() + " " + tempList[4].ToString() + " " + tempList[5].ToString();
+
+            if (SixCombinDic.ContainsKey(tempStr))
+            {
+                foreach (var item in HitCombinDic)
+                {
+                    if (item.Key != 0)
+                    {
+                        if (item.Value[item.Value.Count - 1].numList.Count == 6)
+                        {
+                            if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3] && item.Value[item.Value.Count - 1].numList[4] == tempList[4] && item.Value[item.Value.Count - 1].numList[5] == tempList[5])
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public void GetRandomNumberList(List<List<int>> NumList, int x)
