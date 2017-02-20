@@ -108,12 +108,12 @@ namespace WindowsFormsApplication1
 
         public void GetRandomNumberList(List<List<int>> NumList, int x)
         {
-            List<int> tempNumList = new List<int>();
-            Dictionary<int, int> tempDic = new Dictionary<int,int>();
-
             for (int index = 0; index < x; index++)
             {
                 Random rnd = new Random(Guid.NewGuid().GetHashCode());
+                List<int> tempNumList = new List<int>();
+                Dictionary<int, int> tempDic = new Dictionary<int, int>();
+
                 for (int i = 0; i < 6; i++)
                 {
                     int num;
@@ -129,7 +129,21 @@ namespace WindowsFormsApplication1
                     }
                 }
 
+                foreach (var item in tempDic)
+                {
+                    tempNumList.Add(item.Key);
+                }
 
+                tempNumList.Sort();
+
+                if (tempNumList.Count == 6)
+                {
+                    MessageBox.Show("tempNumList : [" + tempNumList[0] + "][" + tempNumList[1] + "][" + tempNumList[2] + "][" + tempNumList[3] + "][" + tempNumList[4] + "][" + tempNumList[5] + "]");
+                }
+                else
+                {
+                    MessageBox.Show("numList.Count : [" + tempNumList.Count + "]");
+                }
             }
         }
 
