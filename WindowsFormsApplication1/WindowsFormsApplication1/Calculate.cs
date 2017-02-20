@@ -24,8 +24,8 @@ namespace WindowsFormsApplication1
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
             List<string> stringList = new List<string>();
 
-            calculateEachNum(_PowerBall, array);
-            calculateCombinations(_PowerBall);
+            CalculateEachNum(_PowerBall, array);
+            CalculateCombinations(_PowerBall);
 
             if (_ThreeCombin.Count != 0)
             {
@@ -92,7 +92,7 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
-            calculateAllCombinations();
+            CalculateAllCombinations();
 
             stringList.Add("Count = " + _PowerBall.Count);
 
@@ -106,7 +106,34 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
-        public void calculateAllCombinations()
+        public void GetRandomNumberList(List<List<int>> NumList, int x)
+        {
+            List<int> tempNumList = new List<int>();
+            Dictionary<int, int> tempDic = new Dictionary<int,int>();
+
+            for (int index = 0; index < x; index++)
+            {
+                Random rnd = new Random(Guid.NewGuid().GetHashCode());
+                for (int i = 0; i < 6; i++)
+                {
+                    int num;
+                    num = rnd.Next(1, 49);
+
+                    if (tempDic.ContainsKey(num))
+                    {
+                        i--;
+                    }
+                    else
+                    {
+                        tempDic.Add(num, 1);
+                    }
+                }
+
+
+            }
+        }
+
+        public void CalculateAllCombinations()
         {
             List<int> allNumber = new List<int>();
             List<List<int>> numList = new List<List<int>>();
@@ -114,7 +141,7 @@ namespace WindowsFormsApplication1
             Combinations combin = new Combinations();
             string tempString;
             int k = 3;
-            int tempData = 0;
+            //int tempData = 0;
 
             for (int i = 1; i <= 49; i++)
             {
@@ -123,7 +150,7 @@ namespace WindowsFormsApplication1
 
             numList = combin.NewCombine(allNumber, k);
 
-            tempData = numList.Count;
+            //tempData = numList.Count;
 
             for (int i = 0 ; i < numList.Count ; i++)
             {
@@ -139,8 +166,8 @@ namespace WindowsFormsApplication1
             }
 
             //tempNumList = numList[1];
-            tempData = tempData - numList.Count;
-            MessageBox.Show("tempData : [" + tempData + "]");
+            //tempData = tempData - numList.Count;
+            //MessageBox.Show("tempData : [" + tempData + "]");
 
             //MessageBox.Show("numList.Count : [" + tempNumList.Count + "]");
             //MessageBox.Show("tempNumList : [" + tempNumList[0] + "][" + tempNumList[1] + "][" + tempNumList[2] + "]");
@@ -355,7 +382,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void calculateEachNum(List<PowerBall> pB, int[] array)
+        public void CalculateEachNum(List<PowerBall> pB, int[] array)
         {
             if (pB.Count != 0)
             {
@@ -372,7 +399,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        public void calculateCombinations(List<PowerBall> _PowerBall)
+        public void CalculateCombinations(List<PowerBall> _PowerBall)
         {
             if (_PowerBall.Count != 0)
             {
