@@ -110,13 +110,11 @@ namespace WindowsFormsApplication1
             List<List<int>> threeNumList = new List<List<int>>();
             List<List<int>> fourNumList = new List<List<int>>();
             List<List<int>> fiveNumList = new List<List<int>>();
-            List<List<int>> sixNumList = new List<List<int>>();
             Combinations combin = new Combinations();
 
             threeNumList = combin.NewCombine(NumList, 3);
             fourNumList = combin.NewCombine(NumList, 4);
             fiveNumList = combin.NewCombine(NumList, 5);
-            sixNumList = combin.NewCombine(NumList, 6);
         }
 
         public void GetRandomNumberList(List<List<int>> NumList, int x)
@@ -279,7 +277,10 @@ namespace WindowsFormsApplication1
                     switch (item.Value[item.Value.Count - 1].numList.Count)
                     {
                         case 3:
-                            strList.Add("Hit [" + item.Value[item.Value.Count -1].numList[0] + "] [" + item.Value[item.Value.Count-1].numList[1] + "] [" + item.Value[item.Value.Count-1].numList[2] + "], Hit count : [" + item.Value.Count + "]");
+                            if (item.Value.Count != 2)
+                            {
+                                strList.Add("Hit [" + item.Value[item.Value.Count - 1].numList[0] + "] [" + item.Value[item.Value.Count - 1].numList[1] + "] [" + item.Value[item.Value.Count - 1].numList[2] + "], Hit count : [" + item.Value.Count + "]");
+                            }
 
                             if (index3Dic.ContainsKey(item.Value.Count))
                             {
@@ -328,9 +329,22 @@ namespace WindowsFormsApplication1
                             break;
                     }
 
-                    for (int i = 0; i < item.Value.Count; i++)
+                    if (item.Value[item.Value.Count - 1].numList.Count == 3)
                     {
-                        strList.Add("Count [" + item.Value[i].count + "], Hit time " + item.Value[i].mouth + "/" + item.Value[i].day + "/" + item.Value[i].year);
+                        if (item.Value.Count != 2)
+                        {
+                            for (int i = 0; i < item.Value.Count; i++)
+                            {
+                                strList.Add("Count [" + item.Value[i].count + "],\t Time " + item.Value[i].mouth + "/" + item.Value[i].day + "/" + item.Value[i].year);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < item.Value.Count; i++)
+                        {
+                            strList.Add("Count [" + item.Value[i].count + "],\t Time " + item.Value[i].mouth + "/" + item.Value[i].day + "/" + item.Value[i].year);
+                        }
                     }
                 }
                 else
