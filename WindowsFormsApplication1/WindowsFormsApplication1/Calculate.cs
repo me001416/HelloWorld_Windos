@@ -105,6 +105,20 @@ namespace WindowsFormsApplication1
             fileOwner.StopWrite();
         }
 
+        public void CompareCombinations(List<int> NumList)
+        {
+            List<List<int>> threeNumList = new List<List<int>>();
+            List<List<int>> fourNumList = new List<List<int>>();
+            List<List<int>> fiveNumList = new List<List<int>>();
+            List<List<int>> sixNumList = new List<List<int>>();
+            Combinations combin = new Combinations();
+
+            threeNumList = combin.NewCombine(NumList, 3);
+            fourNumList = combin.NewCombine(NumList, 4);
+            fiveNumList = combin.NewCombine(NumList, 5);
+            sixNumList = combin.NewCombine(NumList, 6);
+        }
+
         public void GetRandomNumberList(List<List<int>> NumList, int x)
         {
             for (int index = 0; index < x; index++)
