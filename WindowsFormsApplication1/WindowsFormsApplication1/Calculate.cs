@@ -627,7 +627,7 @@ namespace WindowsFormsApplication1
 
         public void RecordThreeCombinations(List<ThreeCombin> combinListFor3)
         {
-            ThreeCombin tempThreeCombin;
+            ThreeCombin tempCombin;
             string tempString;
 
             if ( combinListFor3.Count != 0 )
@@ -672,39 +672,39 @@ namespace WindowsFormsApplication1
 
                             if (HitCombinDic.Count != 0)
                             {
-                                tempThreeCombin = ThreeCombinDic[tempString];
+                                tempCombin = ThreeCombinDic[tempString];
 
                                 if (HitCombinDic.ContainsKey(1))
                                 {
-                                    if (tempThreeCombin.HitListID == 0)
+                                    if (tempCombin.HitListID == 0)
                                     {
-                                        tempThreeCombin.HitListID = HitCombinDic.Count;
+                                        tempCombin.HitListID = HitCombinDic.Count;
                                         combinListFor3[i].HitListID = HitCombinDic.Count;
 
                                         List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                        tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                        tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
 
-                                        tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                        tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                         tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
-                                        HitCombinDic.Add(tempThreeCombin.HitListID, tempHitCobin);
+                                        HitCombinDic.Add(tempCombin.HitListID, tempHitCobin);
                                     }
                                     else
                                     {
-                                        tempHitCobin = HitCombinDic[tempThreeCombin.HitListID];
+                                        tempHitCobin = HitCombinDic[tempCombin.HitListID];
                                         tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
                                     }
                                 }
                                 else
                                 {
 
-                                    tempThreeCombin.HitListID = hitID;
+                                    tempCombin.HitListID = hitID;
                                     combinListFor3[i].HitListID = hitID;
-                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                     tempHitCobin.Add(new HitCombinations(combinListFor3[i].numList, combinListFor3[i].count, combinListFor3[i].mouth, combinListFor3[i].day, combinListFor3[i].year));
 
                                     HitCombinDic.Add(hitID, tempHitCobin);
                                     List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                    tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                    tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
                                 }
                             }
                             else
@@ -720,7 +720,7 @@ namespace WindowsFormsApplication1
 
         public void RecordFourCombinations(List<FourCombin> combinListFor4)
         {
-            FourCombin tempThreeCombin;
+            FourCombin tempCombin;
             string tempString;
 
             if (combinListFor4.Count != 0)
@@ -765,39 +765,39 @@ namespace WindowsFormsApplication1
 
                             if (HitCombinDic.Count != 0)
                             {
-                                tempThreeCombin = FourCombinDic[tempString];
+                                tempCombin = FourCombinDic[tempString];
 
                                 if (HitCombinDic.ContainsKey(1))
                                 {
-                                    if (tempThreeCombin.HitListID == 0)
+                                    if (tempCombin.HitListID == 0)
                                     {
-                                        tempThreeCombin.HitListID = HitCombinDic.Count;
+                                        tempCombin.HitListID = HitCombinDic.Count;
                                         combinListFor4[i].HitListID = HitCombinDic.Count;
 
                                         List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                        tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                        tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
 
-                                        tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                        tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                         tempHitCobin.Add(new HitCombinations(combinListFor4[i].numList, combinListFor4[i].count, combinListFor4[i].mouth, combinListFor4[i].day, combinListFor4[i].year));
-                                        HitCombinDic.Add(tempThreeCombin.HitListID, tempHitCobin);
+                                        HitCombinDic.Add(tempCombin.HitListID, tempHitCobin);
                                     }
                                     else
                                     {
-                                        tempHitCobin = HitCombinDic[tempThreeCombin.HitListID];
+                                        tempHitCobin = HitCombinDic[tempCombin.HitListID];
                                         tempHitCobin.Add(new HitCombinations(combinListFor4[i].numList, combinListFor4[i].count, combinListFor4[i].mouth, combinListFor4[i].day, combinListFor4[i].year));
                                     }
                                 }
                                 else
                                 {
 
-                                    tempThreeCombin.HitListID = hitID;
+                                    tempCombin.HitListID = hitID;
                                     combinListFor4[i].HitListID = hitID;
-                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                     tempHitCobin.Add(new HitCombinations(combinListFor4[i].numList, combinListFor4[i].count, combinListFor4[i].mouth, combinListFor4[i].day, combinListFor4[i].year));
 
                                     HitCombinDic.Add(hitID, tempHitCobin);
                                     List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                    tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                    tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
                                 }
                             }
                             else
@@ -813,7 +813,7 @@ namespace WindowsFormsApplication1
 
         public void RecordFiveCombinations(List<FiveCombin> combinListFor5)
         {
-            FiveCombin tempThreeCombin;
+            FiveCombin tempCombin;
             string tempString;
 
             if (combinListFor5.Count != 0)
@@ -858,39 +858,39 @@ namespace WindowsFormsApplication1
 
                             if (HitCombinDic.Count != 0)
                             {
-                                tempThreeCombin = FiveCombinDic[tempString];
+                                tempCombin = FiveCombinDic[tempString];
 
                                 if (HitCombinDic.ContainsKey(1))
                                 {
-                                    if (tempThreeCombin.HitListID == 0)
+                                    if (tempCombin.HitListID == 0)
                                     {
-                                        tempThreeCombin.HitListID = HitCombinDic.Count;
+                                        tempCombin.HitListID = HitCombinDic.Count;
                                         combinListFor5[i].HitListID = HitCombinDic.Count;
 
                                         List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                        tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                        tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
 
-                                        tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                        tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                         tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
-                                        HitCombinDic.Add(tempThreeCombin.HitListID, tempHitCobin);
+                                        HitCombinDic.Add(tempCombin.HitListID, tempHitCobin);
                                     }
                                     else
                                     {
-                                        tempHitCobin = HitCombinDic[tempThreeCombin.HitListID];
+                                        tempHitCobin = HitCombinDic[tempCombin.HitListID];
                                         tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
                                     }
                                 }
                                 else
                                 {
 
-                                    tempThreeCombin.HitListID = hitID;
+                                    tempCombin.HitListID = hitID;
                                     combinListFor5[i].HitListID = hitID;
-                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                     tempHitCobin.Add(new HitCombinations(combinListFor5[i].numList, combinListFor5[i].count, combinListFor5[i].mouth, combinListFor5[i].day, combinListFor5[i].year));
 
                                     HitCombinDic.Add(hitID, tempHitCobin);
                                     List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                    tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                    tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
                                 }
                             }
                             else
@@ -906,7 +906,7 @@ namespace WindowsFormsApplication1
 
         public void RecordSixCombinations(List<SixCombin> combinListFor6)
         {
-            SixCombin tempThreeCombin;
+            SixCombin tempCombin;
             string tempString;
 
             if (combinListFor6.Count != 0)
@@ -951,39 +951,39 @@ namespace WindowsFormsApplication1
 
                             if (HitCombinDic.Count != 0)
                             {
-                                tempThreeCombin = SixCombinDic[tempString];
+                                tempCombin = SixCombinDic[tempString];
 
                                 if (HitCombinDic.ContainsKey(1))
                                 {
-                                    if (tempThreeCombin.HitListID == 0)
+                                    if (tempCombin.HitListID == 0)
                                     {
-                                        tempThreeCombin.HitListID = HitCombinDic.Count;
+                                        tempCombin.HitListID = HitCombinDic.Count;
                                         combinListFor6[i].HitListID = HitCombinDic.Count;
 
                                         List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                        tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                        tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
 
-                                        tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                        tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                         tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
-                                        HitCombinDic.Add(tempThreeCombin.HitListID, tempHitCobin);
+                                        HitCombinDic.Add(tempCombin.HitListID, tempHitCobin);
                                     }
                                     else
                                     {
-                                        tempHitCobin = HitCombinDic[tempThreeCombin.HitListID];
+                                        tempHitCobin = HitCombinDic[tempCombin.HitListID];
                                         tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
                                     }
                                 }
                                 else
                                 {
 
-                                    tempThreeCombin.HitListID = hitID;
+                                    tempCombin.HitListID = hitID;
                                     combinListFor6[i].HitListID = hitID;
-                                    tempHitCobin.Add(new HitCombinations(tempThreeCombin.numList, tempThreeCombin.count, tempThreeCombin.mouth, tempThreeCombin.day, tempThreeCombin.year));
+                                    tempHitCobin.Add(new HitCombinations(tempCombin.numList, tempCombin.count, tempCombin.mouth, tempCombin.day, tempCombin.year));
                                     tempHitCobin.Add(new HitCombinations(combinListFor6[i].numList, combinListFor6[i].count, combinListFor6[i].mouth, combinListFor6[i].day, combinListFor6[i].year));
 
                                     HitCombinDic.Add(hitID, tempHitCobin);
                                     List<HitCombinations> tempHitCobin_2 = HitCombinDic[0];
-                                    tempHitCobin_2.RemoveAt(tempThreeCombin.zeroListID);
+                                    tempHitCobin_2.RemoveAt(tempCombin.zeroListID);
                                 }
                             }
                             else
