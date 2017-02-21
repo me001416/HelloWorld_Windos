@@ -92,7 +92,7 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
-            //CompareCombinations(new List<int>{19,32,06,18,23,49}, stringList);
+            CompareCombinations(new List<int>{19,32,06,18,23,49}, stringList);
 
             stringList.Add("Count = " + _PowerBall.Count);
 
@@ -176,6 +176,7 @@ namespace WindowsFormsApplication1
                                 if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3])
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "], Hit count = " + item.Value.Count);
+                                    checkFlag = true;
                                 }
                             }
                         }
@@ -209,6 +210,7 @@ namespace WindowsFormsApplication1
                                 if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3] && item.Value[item.Value.Count - 1].numList[4] == tempList[4])
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "], Hit count = " + item.Value.Count);
+                                    checkFlag = true;
                                 }
                             }
                         }
@@ -240,6 +242,7 @@ namespace WindowsFormsApplication1
                             if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3] && item.Value[item.Value.Count - 1].numList[4] == tempList[4] && item.Value[item.Value.Count - 1].numList[5] == tempList[5])
                             {
                                 strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "][" + tempList[5] + "], Hit count = " + item.Value.Count);
+                                checkFlag = true;
                             }
                         }
                     }
