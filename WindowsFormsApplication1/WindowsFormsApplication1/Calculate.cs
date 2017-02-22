@@ -134,6 +134,8 @@ namespace WindowsFormsApplication1
 
                 if (ThreeCombinDic.ContainsKey(tempStr))
                 {
+                    checkFlag = true;
+
                     foreach (var item in HitCombinDic)
                     {
                         if (item.Key != 0)
@@ -143,13 +145,13 @@ namespace WindowsFormsApplication1
                                 if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2])
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "], Hit count = " + item.Value.Count);
-                                    checkFlag = true;
+                                    checkFlag = false;
                                 }
                             }
                         }
                     }
 
-                    if (!checkFlag)
+                    if (checkFlag)
                     {
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "], Hit count = 1");
                     }
@@ -167,6 +169,8 @@ namespace WindowsFormsApplication1
 
                 if (FourCombinDic.ContainsKey(tempStr))
                 {
+                    checkFlag = true;
+
                     foreach (var item in HitCombinDic)
                     {
                         if (item.Key != 0)
@@ -176,13 +180,13 @@ namespace WindowsFormsApplication1
                                 if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3])
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "], Hit count = " + item.Value.Count);
-                                    checkFlag = true;
+                                    checkFlag = false;
                                 }
                             }
                         }
                     }
 
-                    if (!checkFlag)
+                    if (checkFlag)
                     {
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "], Hit count = 1");
                     }
@@ -201,6 +205,8 @@ namespace WindowsFormsApplication1
 
                 if (FiveCombinDic.ContainsKey(tempStr))
                 {
+                    checkFlag = true;
+
                     foreach (var item in HitCombinDic)
                     {
                         if (item.Key != 0)
@@ -210,13 +216,13 @@ namespace WindowsFormsApplication1
                                 if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3] && item.Value[item.Value.Count - 1].numList[4] == tempList[4])
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "], Hit count = " + item.Value.Count);
-                                    checkFlag = true;
+                                    checkFlag = false;
                                 }
                             }
                         }
                     }
 
-                    if (!checkFlag)
+                    if (checkFlag)
                     {
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "], Hit count = 1");
                     }
@@ -233,6 +239,8 @@ namespace WindowsFormsApplication1
 
             if (SixCombinDic.ContainsKey(tempStr))
             {
+                checkFlag = true;
+
                 foreach (var item in HitCombinDic)
                 {
                     if (item.Key != 0)
@@ -242,13 +250,13 @@ namespace WindowsFormsApplication1
                             if (item.Value[item.Value.Count - 1].numList[0] == tempList[0] && item.Value[item.Value.Count - 1].numList[1] == tempList[1] && item.Value[item.Value.Count - 1].numList[2] == tempList[2] && item.Value[item.Value.Count - 1].numList[3] == tempList[3] && item.Value[item.Value.Count - 1].numList[4] == tempList[4] && item.Value[item.Value.Count - 1].numList[5] == tempList[5])
                             {
                                 strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "][" + tempList[5] + "], Hit count = " + item.Value.Count);
-                                checkFlag = true;
+                                checkFlag = false;
                             }
                         }
                     }
                 }
 
-                if (!checkFlag)
+                if (checkFlag)
                 {
                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "][" + tempList[5] + "], Hit count = 1");
                 }
