@@ -94,11 +94,11 @@ namespace WindowsFormsApplication1
             ReportCombinations(stringList);
             CompareCombinations(new List<int>{19,32,06,18,23,49}, stringList);
 
-            stringList.Add("Count = " + _PowerBall.Count);
+            stringList.Add("\rCount = " + _PowerBall.Count);
 
             for (int i = 1; i < 50; i++)
             {
-                stringList.Add("Number " + i + " = " + array[i]);
+                //stringList.Add("Number " + i + " = " + array[i]);
             }
 
             fileOwner.WriteReport(stringList, stringList.Count);
@@ -117,6 +117,9 @@ namespace WindowsFormsApplication1
             Combinations combin = new Combinations();
 
             NumList.Sort();
+
+            strList.Add("\rInput Number : [" + NumList[0] + "][" + NumList[1] + "][" + NumList[2] + "][" + NumList[3] + "][" + NumList[4] + "][" + NumList[5] + "]");
+            strList.Add("********************************************************");
 
             threeNumList = combin.NewCombine(NumList, 3);
             fourNumList = combin.NewCombine(NumList, 4);
@@ -146,6 +149,11 @@ namespace WindowsFormsApplication1
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "], Hit count = " + item.Value.Count);
                                     checkFlag = false;
+
+                                    for (int j = 0; j < item.Value.Count; j++)
+                                    {
+                                        strList.Add("Count [" + item.Value[j].count + "],\t Time " + item.Value[j].mouth + "/" + item.Value[j].day + "/" + item.Value[j].year);
+                                    }
                                 }
                             }
                         }
@@ -153,7 +161,9 @@ namespace WindowsFormsApplication1
 
                     if (checkFlag)
                     {
+                        var tempCombin = ThreeCombinDic[tempStr];
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "], Hit count = 1");
+                        strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                     }
                 }
             }
@@ -181,6 +191,11 @@ namespace WindowsFormsApplication1
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "], Hit count = " + item.Value.Count);
                                     checkFlag = false;
+
+                                    for (int j = 0; j < item.Value.Count; j++)
+                                    {
+                                        strList.Add("Count [" + item.Value[j].count + "],\t Time " + item.Value[j].mouth + "/" + item.Value[j].day + "/" + item.Value[j].year);
+                                    }
                                 }
                             }
                         }
@@ -188,7 +203,9 @@ namespace WindowsFormsApplication1
 
                     if (checkFlag)
                     {
+                        var tempCombin = ThreeCombinDic[tempStr];
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "], Hit count = 1");
+                        strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                     }
                 }
             }
@@ -217,6 +234,11 @@ namespace WindowsFormsApplication1
                                 {
                                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "], Hit count = " + item.Value.Count);
                                     checkFlag = false;
+
+                                    for (int j = 0; j < item.Value.Count; j++)
+                                    {
+                                        strList.Add("Count [" + item.Value[j].count + "],\t Time " + item.Value[j].mouth + "/" + item.Value[j].day + "/" + item.Value[j].year);
+                                    }
                                 }
                             }
                         }
@@ -224,7 +246,9 @@ namespace WindowsFormsApplication1
 
                     if (checkFlag)
                     {
+                        var tempCombin = ThreeCombinDic[tempStr];
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "], Hit count = 1");
+                        strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                     }
                 }
             }
@@ -251,6 +275,11 @@ namespace WindowsFormsApplication1
                             {
                                 strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "][" + tempList[5] + "], Hit count = " + item.Value.Count);
                                 checkFlag = false;
+
+                                for (int j = 0; j < item.Value.Count; j++)
+                                {
+                                    strList.Add("Count [" + item.Value[j].count + "],\t Time " + item.Value[j].mouth + "/" + item.Value[j].day + "/" + item.Value[j].year);
+                                }
                             }
                         }
                     }
@@ -258,7 +287,9 @@ namespace WindowsFormsApplication1
 
                 if (checkFlag)
                 {
+                    var tempCombin = ThreeCombinDic[tempStr];
                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "][" + tempList[5] + "], Hit count = 1");
+                    strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                 }
             }
         }
