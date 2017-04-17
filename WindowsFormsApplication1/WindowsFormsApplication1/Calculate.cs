@@ -93,13 +93,17 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
-            //CompareCombinations(new List<int>{38,22,24,17,18,25}, stringList);
             //CompareCombinations(new List<int>{05,34,43,17,33,44}, stringList);
             //CompareCombinations(new List<int>{31,23,37,49,19,32}, stringList);
             //CompareCombinations(new List<int>{40,22,09,47,36,31}, stringList);
-            CompareCombinations(mRandomNum.GetRandomNum(), stringList);
-            CompareCombinations(mRandomNum.GetRandomNum(), stringList);
-            CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            //CompareCombinations(new List<int>{29,02,03,42,04,23}, stringList);
+            //CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            //CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            //CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            for (int i = 1; i < 20; i++)
+            {
+                CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            }
 
 
             stringList.Add("\rCount = " + _PowerBall.Count);
@@ -123,6 +127,11 @@ namespace WindowsFormsApplication1
             string tempStr;
             bool checkFlag = false;
             Combinations combin = new Combinations();
+
+            if (NumList.Count != 6)
+            {
+                return;
+            }
 
             NumList.Sort();
 
