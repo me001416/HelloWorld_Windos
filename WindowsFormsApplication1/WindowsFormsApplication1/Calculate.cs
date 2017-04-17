@@ -92,8 +92,10 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
+            //CompareCombinations(new List<int>{38,22,24,17,18,25}, stringList);
             CompareCombinations(new List<int>{05,34,43,17,33,44}, stringList);
             CompareCombinations(new List<int>{31,23,37,49,19,32}, stringList);
+            CompareCombinations(new List<int>{40,22,09,47,36,31}, stringList);
 
             stringList.Add("\rCount = " + _PowerBall.Count);
 
