@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
             int[] _NumArray = new int[7];
             File_Owner fileOwner = new File_Owner(@"D:\CODE\ForFun\C_Sharp\Test\Report.txt", true);
             List<string> stringList = new List<string>();
+            RandomNum mRandomNum = new RandomNum();
 
             CalculateEachNum(_PowerBall, array);
             CalculateCombinations(_PowerBall);
@@ -93,9 +94,13 @@ namespace WindowsFormsApplication1
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
             //CompareCombinations(new List<int>{38,22,24,17,18,25}, stringList);
-            CompareCombinations(new List<int>{05,34,43,17,33,44}, stringList);
-            CompareCombinations(new List<int>{31,23,37,49,19,32}, stringList);
-            CompareCombinations(new List<int>{40,22,09,47,36,31}, stringList);
+            //CompareCombinations(new List<int>{05,34,43,17,33,44}, stringList);
+            //CompareCombinations(new List<int>{31,23,37,49,19,32}, stringList);
+            //CompareCombinations(new List<int>{40,22,09,47,36,31}, stringList);
+            CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+            CompareCombinations(mRandomNum.GetRandomNum(), stringList);
+
 
             stringList.Add("\rCount = " + _PowerBall.Count);
 

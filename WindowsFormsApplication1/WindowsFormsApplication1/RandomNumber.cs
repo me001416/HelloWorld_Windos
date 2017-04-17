@@ -10,7 +10,7 @@ namespace WindowsFormsApplication1
 
         public RandomNum()
         {
-            Random mRandom = new Random(Guid.NewGuid().GetHashCode());
+            mRandom = new Random(Guid.NewGuid().GetHashCode());
         }
 
         public List<int> GetRandomNum()
