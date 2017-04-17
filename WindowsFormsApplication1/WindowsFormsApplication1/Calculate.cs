@@ -92,7 +92,8 @@ namespace WindowsFormsApplication1
             RecordFiveCombinations(_FiveCombin);
             RecordSixCombinations(_SixCombin);
             ReportCombinations(stringList);
-            CompareCombinations(new List<int>{19,32,06,18,23,49}, stringList);
+            CompareCombinations(new List<int>{05,34,43,17,33,44}, stringList);
+            CompareCombinations(new List<int>{31,23,37,49,19,32}, stringList);
 
             stringList.Add("\rCount = " + _PowerBall.Count);
 
@@ -161,9 +162,9 @@ namespace WindowsFormsApplication1
 
                     if (checkFlag)
                     {
-                        var tempCombin = ThreeCombinDic[tempStr];
+                        //var tempCombin = ThreeCombinDic[tempStr];
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "], Hit count = 1");
-                        strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
+                        //strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                     }
                 }
             }
@@ -203,9 +204,9 @@ namespace WindowsFormsApplication1
 
                     if (checkFlag)
                     {
-                        var tempCombin = ThreeCombinDic[tempStr];
+                        //var tempCombin = ThreeCombinDic[tempStr];
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "], Hit count = 1");
-                        strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
+                        //strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                     }
                 }
             }
@@ -246,9 +247,9 @@ namespace WindowsFormsApplication1
 
                     if (checkFlag)
                     {
-                        var tempCombin = ThreeCombinDic[tempStr];
+                        //var tempCombin = ThreeCombinDic[tempStr];
                         strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "], Hit count = 1");
-                        strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
+                        //strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                     }
                 }
             }
@@ -287,9 +288,9 @@ namespace WindowsFormsApplication1
 
                 if (checkFlag)
                 {
-                    var tempCombin = ThreeCombinDic[tempStr];
+                    //var tempCombin = ThreeCombinDic[tempStr];
                     strList.Add("Number Combination [" + tempList[0] + "][" + tempList[1] + "][" + tempList[2] + "][" + tempList[3] + "][" + tempList[4] + "][" + tempList[5] + "], Hit count = 1");
-                    strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
+                    //strList.Add("Count [" + tempCombin.count + "],\t Time " + tempCombin.mouth + "/" + tempCombin.day + "/" + tempCombin.year);
                 }
             }
         }
