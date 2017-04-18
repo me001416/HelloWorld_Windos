@@ -50,20 +50,13 @@ namespace WindowsFormsApplication1
                     {
                         tempNum = mHitCombinations.day - day;
 
-                        CompareMath(Num, tempNum);
+                        return CompareMath(Num, tempNum);
                     }
                     else if (mHitCombinations.day < day)
                     {
                         tempNum = day - mHitCombinations.day;
 
-                        if (tempNum > Num)
-                        {
-                            return DateCompareStatus.IS_GREATER_THAN;
-                        }
-                        else
-                        {
-                            return DateCompareStatus.IS_LESS_THAN;
-                        }
+                        return CompareMath(Num, tempNum);
                     }
                     else
                     {
@@ -81,18 +74,20 @@ namespace WindowsFormsApplication1
 
                     tempNum = mHitCombinations.day + (MaxMouthDayNum(mouth) - day);
 
-                    if (tempNum > Num)
-                    {
-                        return DateCompareStatus.IS_GREATER_THAN;
-                    }
-                    else
-                    {
-                        return DateCompareStatus.IS_LESS_THAN;
-                    }
+                    return CompareMath(Num, tempNum);
                 }
                 else if (mHitCombinations.mouth < mouth)
                 {
+                    if ((MaxMouthDayNum(mHitCombinations.mouth) == 0) ||
+                        (MaxMouthDayNum(mouth) == 0) ||
+                        (MaxMouthDayNum(mHitCombinations.mouth) - mHitCombinations.day) < 0)
+                    {
+                        return DateCompareStatus.ERROR_STATUS;
+                    }
 
+                    tempNum = day + (MaxMouthDayNum(mHitCombinations.mouth) - mHitCombinations.day);
+
+                    return CompareMath(Num, tempNum);
                 }
                 else
                 {
