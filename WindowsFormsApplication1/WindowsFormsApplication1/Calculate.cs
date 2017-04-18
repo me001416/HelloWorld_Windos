@@ -532,6 +532,8 @@ namespace WindowsFormsApplication1
                                 strList.Add("Count [" + item.Value[i].count + "],\t Time " + item.Value[i].mouth + "/" + item.Value[i].day + "/" + item.Value[i].year);
                             }
                         }
+
+                        
                     }
                     else
                     {

@@ -4,6 +4,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    public enum DateCompareStatus
+    {
+        NO_STATUS = 0,
+        IS_GREATER_THAN,
+        IS_LESS_THAN,
+        EQUAL,
+        SAME_DATE,
+        ERROR_STATUS,
+    };
+
     public class HitCombinations
     {
         public List<int> numList = new List<int>();
@@ -23,6 +33,130 @@ namespace WindowsFormsApplication1
             year = y1;
             hitCount = 0;
         }
+
+        public DateCompareStatus CompareDate(HitCombinations mHitCombinations, int Num)
+        {
+            int tempNum = 0;
+
+            if (mHitCombinations.year == year && mHitCombinations.mouth == mouth && mHitCombinations.day == day)
+            {
+                return DateCompareStatus.SAME_DATE;
+            }
+            else if (mHitCombinations.year == year)
+            {
+                if (mHitCombinations.mouth == mouth)
+                {
+                    if (mHitCombinations.day > day)
+                    {
+                        tempNum = mHitCombinations.day - day;
+
+                        if (tempNum > Num)
+                        {
+                            return DateCompareStatus.IS_GREATER_THAN;
+                        }
+                        else
+                        {
+                            return DateCompareStatus.IS_LESS_THAN;
+                        }
+                    }
+                    else if (mHitCombinations.day < day)
+                    {
+                        tempNum = day - mHitCombinations.day;
+
+                        if (tempNum > Num)
+                        {
+                            return DateCompareStatus.IS_GREATER_THAN;
+                        }
+                        else
+                        {
+                            return DateCompareStatus.IS_LESS_THAN;
+                        }
+                    }
+                    else
+                    {
+                        return DateCompareStatus.ERROR_STATUS;
+                    }
+                } /// if (mHitCombinations.mouth == mouth)
+                else if (mHitCombinations.mouth > mouth)
+                {
+                    if ((MaxMouthDayNum(mHitCombinations.mouth) == 0) || 
+                        (MaxMouthDayNum(mouth) == 0) ||
+                        (MaxMouthDayNum(mouth) - day) < 0)
+                    {
+                        return DateCompareStatus.ERROR_STATUS;
+                    }
+
+                    tempNum = mHitCombinations.day + (MaxMouthDayNum(mouth) - day);
+
+                    if (tempNum > Num)
+                    {
+                        return DateCompareStatus.IS_GREATER_THAN;
+                    }
+                    else
+                    {
+                        return DateCompareStatus.IS_LESS_THAN;
+                    }
+                }
+                else if (mHitCombinations.mouth < mouth)
+                {
+
+                }
+                else
+                {
+                    return DateCompareStatus.ERROR_STATUS;
+                }
+            } /// else if (mHitCombinations.year == year)
+            
+
+            return DateCompareStatus.NO_STATUS;
+        } /// public DateCompareStatus CompareDate(HitCombinations mHitCombinations, int Num)
+        
+        private int MaxMouthDayNum(int _Mouth)
+        {
+            int num = 0;
+
+            switch (_Mouth)
+            {
+                case 1:
+                    num = 31;
+                    break;
+                case 2:
+                    num = 28;
+                    break;
+                case 3:
+                    num = 31;
+                    break;
+                case 4:
+                    num = 30;
+                    break;
+                case 5:
+                    num = 31;
+                    break;
+                case 6:
+                    num = 30;
+                    break;
+                case 7:
+                    num = 31;
+                    break;
+                case 8:
+                    num = 31;
+                    break;
+                case 9:
+                    num = 30;
+                    break;
+                case 10:
+                    num = 31;
+                    break;
+                case 11:
+                    num = 30;
+                    break;
+                case 12:
+                    num = 31;
+                    break;
+            }
+
+            return num;
+        } /// private int MaxMouthDayNum(int _Mouth)
     }
 
     public class ThreeCombin
