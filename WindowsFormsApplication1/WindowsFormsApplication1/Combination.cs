@@ -94,11 +94,49 @@ namespace WindowsFormsApplication1
                     return DateCompareStatus.ERROR_STATUS;
                 }
             } /// else if (mHitCombinations.year == year)
-            
+            else if (mHitCombinations.year > year)
+            {
+                if (Num <= 31)
+                {
+                    if ((mHitCombinations.mouth != 1) || (mouth != 12))
+                    {
+                        return DateCompareStatus.IS_GREATER_THAN;
+                    }
+
+
+                }
+
+            }
+            else if (mHitCombinations.year < year)
+            {
+                if (Num <= 31)
+                {
+                    if ((mHitCombinations.mouth != 12) || (mouth != 1))
+                    {
+                        return DateCompareStatus.IS_GREATER_THAN;
+                    }
+                }
+            }
 
             return DateCompareStatus.NO_STATUS;
         } /// public DateCompareStatus CompareDate(HitCombinations mHitCombinations, int Num)
-          /// 
+
+        private DateCompareStatus CompareMathWithMouth(int TargetNum, int _mouth1, int _day1, int _mouth2, int _day2)
+        {
+            int tempNum = 0;
+
+            if ((MaxMouthDayNum(_mouth1) == 0) || 
+                (MaxMouthDayNum(_mouth2) == 0) || 
+                (MaxMouthDayNum(_mouth2) - _day2) < 0)
+            {
+                return DateCompareStatus.ERROR_STATUS;
+            }
+
+            tempNum = _day1 + (MaxMouthDayNum(_mouth2) - _day2);
+
+            return CompareMath(TargetNum, tempNum);
+        }
+
         private DateCompareStatus CompareMath(int TargetNum, int Num)
         {
             if (Num == TargetNum)
