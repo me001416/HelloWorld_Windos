@@ -50,14 +50,7 @@ namespace WindowsFormsApplication1
                     {
                         tempNum = mHitCombinations.day - day;
 
-                        if (tempNum > Num)
-                        {
-                            return DateCompareStatus.IS_GREATER_THAN;
-                        }
-                        else
-                        {
-                            return DateCompareStatus.IS_LESS_THAN;
-                        }
+                        CompareMath(Num, tempNum);
                     }
                     else if (mHitCombinations.day < day)
                     {
@@ -110,6 +103,22 @@ namespace WindowsFormsApplication1
 
             return DateCompareStatus.NO_STATUS;
         } /// public DateCompareStatus CompareDate(HitCombinations mHitCombinations, int Num)
+          /// 
+        private DateCompareStatus CompareMath(int TargetNum, int Num)
+        {
+            if (Num == TargetNum)
+            {
+                return DateCompareStatus.EQUAL;
+            }
+            else if (Num > TargetNum)
+            {
+                return DateCompareStatus.IS_GREATER_THAN;
+            }
+            else
+            {
+                return DateCompareStatus.IS_LESS_THAN;
+            }
+        }
         
         private int MaxMouthDayNum(int _Mouth)
         {
